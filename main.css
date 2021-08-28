@@ -1,0 +1,146 @@
+@font-face {
+    font-family: 'FHWA Series B';
+    src: url('fonts/Highway Gothic Condensed.ttf');
+}
+@font-face {
+    font-family: 'FHWA Series C';
+    src: url('fonts/Highway Gothic Narrow.ttf');
+}
+@font-face {
+    font-family: 'FHWA Series D';
+    src: url('fonts/Highway Gothic.ttf');
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0;
+    padding: 4rem 0 0 0;
+    text-align: center;
+    background-image: linear-gradient(
+        to bottom,
+        #5588cc,
+        #88ccff
+    );
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+:root {
+    --green: #449944;
+    --decal: #3c7c3c;
+}
+.street-sign-extruded {
+    display: inline-block;
+    font-size: 8vw;
+    box-sizing: content-box;
+    position: relative;
+    background-clip: border-box;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+.street-sign-extruded::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    background-image: linear-gradient(
+        to bottom,
+        transparent 11%, rgba(0 0 0 / 50%) 14%, transparent 17%,
+        transparent 83%, white 86%, transparent 89%
+    );
+}
+.street-sign {
+    border: 0.25em solid #ccc;
+    line-height: 1;
+    background-color: var(--green);
+    color: #ffffff;
+    display: grid;
+    grid-template-areas:
+        'direction name designator'
+        'direction name block-number';
+    width: auto;
+    padding-left: 0.25em;
+    align-content: space-evenly;
+    padding-right: 0.25em;
+    column-gap: 0.25em;
+    position: relative;
+}
+.street-sign--direction {
+    font-family: 'FHWA Series C';
+    grid-area: direction;
+    font-size: 50%;
+    width: 1.75em;
+    line-height: 2;
+    text-align: center;
+    background-image: url('diamond.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: var(--green);
+    align-self: center;
+}
+.street-sign--name {
+    font-size: 125%;
+    font-family: 'FHWA Series B';
+    grid-area: name;
+    line-height: 0.8;
+    position: relative;
+    top: 0.02em;
+    letter-spacing: -0.030em;
+}
+.street-sign--name sup {
+    vertical-align: 83.3333%;
+    font-size: 50%;
+}
+.street-sign--designator {
+    grid-area: designator;
+    font-size: 31.25%;
+    line-height: 0.625;
+    padding-top: 0.0625em;
+    font-family: 'FHWA Series D';
+
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    height: 0.5em; /* trial and error */
+}
+.street-sign--block-number {
+    grid-area: block-number;
+    font-size: 62.5%;
+    font-family: 'FHWA Series C';
+    position: relative;
+    background-color: var(--decal);
+    text-align: center;
+    align-self: center;
+    padding-top: 0.05em;
+    width: 2.833333em;
+}
+.street-sign--block-number::before {
+    --width: 0.05em;
+    content: '';
+    position: absolute;
+    top: var(--width);
+    right: calc(2 * var(--width));
+    bottom: var(--width);
+    left: calc(2 * var(--width));
+    border-width: var(--width);
+    border-radius: calc(1.5 * var(--width));
+    border-style: solid;
+    border-color: white;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}

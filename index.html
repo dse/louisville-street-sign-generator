@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+        <title>Street Sign!</title>
+        <link rel="stylesheet" href="main.css">
+        <script src="main.js"></script>
+    </head>
+    <body>
+
+        <h1>Street Sign Generator</h1>
+
+        <form id='streetSignGenerator'>
+
+            <span class="street-sign-extruded">
+                <span class="street-sign">
+                    <span data-street-direction-output class="street-sign--direction">W</span>
+                    <span data-street-name-output class="street-sign--name">MUHAMMAD ALI</span>
+                    <span data-street-designator-output class="street-sign--designator">BOULEVARD</span>
+                    <span data-street-block-number-output class="street-sign--block-number">1700</span>
+                </span>
+            </span>
+
+            <div class="input-group">
+                <label>
+                    Direction:<br>
+                    <select data-street-direction-input name="street-direction">
+                        <option></option>
+                        <option>N</option>
+                        <option>S</option>
+                        <option>W</option>
+                        <option>E</option>
+                    </select>
+                </label>
+                <label>
+                    Street Name:<br>
+                    <input data-street-name-input type="text" name="street-name" style="width: 12em;" value="MUHAMMAD ALI">
+                </label>
+                <label>
+                    Designator, e.g., "COURT".  Spell in full.  DO NOT ANGER THE STREET SIGN GODS.<br>
+                    <input data-street-designator-input type="text" name="street-designator" style="width: 12em;" value="BOULEVARD">
+                </label>
+                <label>
+                    Block Number<br>
+                    <input data-street-block-number-input type="number" name="street-block-number" style="width: 6em;" value="100">
+                </label>
+            </div>
+        </form>
+
+        <script>
+            var ssg = new StreetSignGenerator('streetSignGenerator');
+        </script>
+
+    </body>
+</html>
