@@ -49,17 +49,20 @@ Object.assign(StreetSignGenerator.prototype, {
         if (!blockNumber) {
             blockNumber = "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a000";
         }
+        if (!/\S/.test(designator)) {
+            designator = "\u00a0";
+        }
 
-        var matches;
         if (/^MC/.test(name)) {
             name = 'Mc' + name.slice(2);
         }
+        var matches;
         if ((matches = /^(.*)(\d+)(ST|ND|RD|TH)$/.exec(name))) {
             name = matches[1] + matches[2] + '<sup>' + matches[3] + '</sup>';
         }
 
         this.outputs.direction.innerHTML = direction;
-        this.outputs.direction.style.display = /\S/.test(this.outputs.direction.innerHTML) ? '' : 'none';
+        this.element.querySelector('[data-street-direction]').style.display = /\S/.test(this.outputs.direction.innerHTML) ? '' : 'none';
         this.outputs.name.innerHTML = name;
         this.outputs.designator.innerHTML = designator;
         this.outputs.blockNumber.innerHTML = blockNumber;
