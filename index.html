@@ -11,69 +11,84 @@
     </head>
     <body>
 
-        <h1>Street Sign Generator</h1>
+        <div class="grid-container">
+            <div class="grid-x grid-margin-x">
+                <div class="cell">
 
-        <p>
-            Sometime around 1964 or 1965, Louisville and Jefferson
-            County streets had brand new retroreflective street name
-            signs with the most handsomest design ever.  Fight me on
-            this matter, and you will lose.
-        </p>
+                    <h1 class="text-center">
+                        Street Sign Generator
+                    </h1>
 
-        <form id='streetSignGenerator'>
+                    <p class="lead">
+                        Sometime around 1964 or 1965, Louisville and Jefferson
+                        County streets had brand new retroreflective street name
+                        signs with the most handsomest design ever.  Fight me on
+                        this matter, and you will lose.
+                    </p>
 
-            <span class="street-sign">
-                <span class="street-sign__main-decal">
-                    <span class="street-sign__layout">
-                        <span data-street-direction class="street-sign__layout__direction">
-                            <span class="street-sign__direction-wrapper">
-                                <span data-street-direction-output class="street-sign__direction"></span>
+                    <form id='streetSignGenerator'>
+
+                        <div class="street-sign">
+                            <span class="street-sign__extruded-plate">
+                                <span class="street-sign__main-decal">
+                                    <span class="street-sign__layout">
+                                        <span data-street-direction class="street-sign__layout__direction">
+                                            <span class="street-sign__direction-wrapper">
+                                                <span data-street-direction-output class="street-sign__direction"></span>
+                                            </span>
+                                        </span>
+                                        <span class="street-sign__layout__name">
+                                            <span data-street-name-output class="street-sign__name">PENILE</span>
+                                        </span>
+                                        <span class="street-sign__layout__designator">
+                                            <span data-street-designator-output class="street-sign__designator">ROAD</span>
+                                        </span>
+                                        <span class="street-sign__layout__block-number">
+                                            <span class="street-sign__block-number-decal">
+                                                <span data-street-block-number-output class="street-sign__block-number">1100</span>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </span>
                             </span>
-                        </span>
-                        <span class="street-sign__layout__name">
-                            <span data-street-name-output class="street-sign__name">PENILE</span>
-                        </span>
-                        <span class="street-sign__layout__designator">
-                            <span data-street-designator-output class="street-sign__designator">ROAD</span>
-                        </span>
-                        <span class="street-sign__layout__block-number">
-                            <span class="street-sign__block-number-decal">
-                                <span data-street-block-number-output class="street-sign__block-number">1100</span>
-                            </span>
-                        </span>
-                    </span>
-                </span>
-            </span>
+                        </div>
 
-            <div class="input-group">
-                <label>
-                    Direction:<br>
-                    <select data-street-direction-input name="street-direction">
-                        <option></option>
-                        <option>N</option>
-                        <option>S</option>
-                        <option>W</option>
-                        <option>E</option>
-                    </select>
-                </label>
-                <label>
-                    Street Name:<br>
-                    <input data-street-name-input type="text" name="street-name" style="width: 12em;" value="MUHAMMAD ALI">
-                </label>
-                <label>
-                    Designator, e.g., "COURT".  Spell in full.  DO NOT ANGER THE STREET SIGN GODS.<br>
-                    <input data-street-designator-input type="text" name="street-designator" style="width: 12em;" value="BOULEVARD">
-                </label>
-                <label>
-                    Block Number<br>
-                    <input data-street-block-number-input type="number" name="street-block-number" style="width: 6em;" value="100">
-                </label>
+                        <fieldset class="address-fields">
+
+                            <label>
+                                Dir'n:<br>
+                                <select data-street-direction-input name="street-direction">
+                                    <option></option>
+                                    <option>N</option>
+                                    <option>S</option>
+                                    <option>W</option>
+                                    <option>E</option>
+                                </select>
+                            </label>
+                            <label>
+                                Street Name:<br>
+                                <input data-street-name-input type="text" name="street-name" value="MUHAMMAD ALI">
+                            </label>
+                            <label>
+                                Suffix:<br>
+                                <input data-street-designator-input type="text" name="street-designator" value="BOULEVARD">
+                                <div class="help-text">
+                                    e.g., "COURT".<br>
+                                    Spell in full.
+                                </div>
+                            </label>
+                            <label>
+                                Block &numero;<br>
+                                <input data-street-block-number-input type="number" name="street-block-number" value="100">
+                            </label>
+                        </fieldset>
+
+                    </form>
+
+                </div>
             </div>
-        </form>
-
-        <div class="text-sample">
-            HOH
         </div>
+
 
         <script>
             var ssg = new StreetSignGenerator('streetSignGenerator');
