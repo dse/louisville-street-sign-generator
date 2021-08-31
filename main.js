@@ -7,16 +7,22 @@ function StreetSignGenerator(element) {
             return;
         }
     }
+
     this.inputs = {};
     this.inputs.direction = this.element.querySelector('[data-street-direction-input]');
     this.inputs.name = this.element.querySelector('[data-street-name-input]');
     this.inputs.designator = this.element.querySelector('[data-street-designator-input]');
     this.inputs.blockNumber = this.element.querySelector('[data-street-block-number-input]');
+    this.inputs.smallText = this.element.querySelector('[data-street-small-text-checkbox]');
+
     this.outputs = {};
     this.outputs.direction = this.element.querySelector('[data-street-direction-output]');
     this.outputs.name = this.element.querySelector('[data-street-name-output]');
     this.outputs.designator = this.element.querySelector('[data-street-designator-output]');
     this.outputs.blockNumber = this.element.querySelector('[data-street-block-number-output]');
+
+    this.elements = {};
+    this.elements.streetSign = this.element.querySelector('[data-street-sign]');
 
     this.loadData();
     if (this.data) {
@@ -39,6 +45,7 @@ function StreetSignGenerator(element) {
     this.inputs.blockNumber.addEventListener('keydown', this.updateFromForm.bind(this));
     this.inputs.blockNumber.addEventListener('keyup', this.updateFromForm.bind(this));
     this.inputs.blockNumber.addEventListener('change', this.updateFromForm.bind(this));
+    this.inputs.smallText.addEventListener('change', this.updateFromForm.bind(this));
 }
 Object.assign(StreetSignGenerator.prototype, {
     updateFromForm: function () {
@@ -46,6 +53,8 @@ Object.assign(StreetSignGenerator.prototype, {
         var name = this.inputs.name.value.trim().toUpperCase();
         var designator = this.inputs.designator.value.toUpperCase();
         var blockNumber = this.inputs.blockNumber.value;
+        var smallText = this.inputs.smallText.checked;
+
         if (!/\S/.test(designator)) {
             designator = "\u00a0";
         }
@@ -63,6 +72,7 @@ Object.assign(StreetSignGenerator.prototype, {
         this.outputs.name.innerHTML = name;
         this.outputs.designator.innerHTML = designator;
         this.outputs.blockNumber.innerHTML = blockNumber;
+        this.elements.streetSign.classList[smallText ? 'add' : 'remove']('street-sign--small-text');
         this.saveData();
     },
     loadData: function () {
@@ -74,12 +84,14 @@ Object.assign(StreetSignGenerator.prototype, {
         this.inputs.name.value = this.data.name;
         this.inputs.designator.value = this.data.designator;
         this.inputs.blockNumber.value = this.data.blockNumber;
+        this.inputs.smallText.checked = !!this.data.smallText;
     },
     saveData: function () {
         var direction = this.inputs.direction.options[this.inputs.direction.selectedIndex].value;
         var name = this.inputs.name.value;
         var designator = this.inputs.designator.value;
         var blockNumber = this.inputs.blockNumber.value;
+        var smallText = this.inputs.smallText.checked;
         if (!this.data) {
             this.data = {};
         }
@@ -87,6 +99,7 @@ Object.assign(StreetSignGenerator.prototype, {
         this.data.name = name;
         this.data.designator = designator;
         this.data.blockNumber = blockNumber;
+        this.data.smallText = smallText;
         localStorage.setItem('streetSign', JSON.stringify(this.data));
     },
     setSelectValue: function (select, value) {

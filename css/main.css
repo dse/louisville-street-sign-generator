@@ -1146,7 +1146,7 @@ body { background-image: -webkit-gradient(linear, left top, left bottom, from(#5
 
 .street-sign__name { display: block; font-size: 130.59701%; line-height: 0.62; padding-top: 0.05em; font-family: 'FHWA Series B'; position: relative; letter-spacing: -0.030em; }
 
-.street-sign--smaller-text .street-sign__name { font-size: 102.61194%; line-height: 0.62; padding-top: 0.05em; }
+.street-sign--small-text .street-sign__name { font-size: 102.61194%; line-height: 0.62; padding-top: 0.05em; }
 
 .street-sign__name sup { font-size: 50%; letter-spacing: 0; margin-left: 0.125em; vertical-align: baseline; position: relative; top: -0.67em; }
 
