@@ -11,9 +11,10 @@
     src: url('../fonts/Highway Gothic.ttf');
 }
 
-$font-line-height: 0.623;
-$font-padding-top: 0.047;
+$font-line-height: 0.62;
+$font-padding-top: 0.05;
 $border-width: 0.03125em;
+
 $background: #449944;
 $decal-background: darken($background, 8%);
 
@@ -58,9 +59,10 @@ body {
     background-clip: border-box;
     margin-top: 4rem;
     margin-bottom: 4rem;
+    background-color: #ccc;
 }
 
-.street-sign-extruded::after {
+.street-sign-extruded::before {
     content: '';
     position: absolute;
     top: 0;
@@ -68,15 +70,12 @@ body {
     left: 0;
     right: 0;
     display: block;
-
     $top1: 100% / 6;
     $top2: 100% / 6 - 3%;
     $top3: 100% / 6 - 6%;
-
     $bottom1: 100% - 100% / 6;
     $bottom2: 100% - 100% / 6 + 3%;
     $bottom3: 100% - 100% / 6 + 6%;
-
     background-image: linear-gradient(
         to bottom,
         transparent #{$top3},
@@ -112,8 +111,9 @@ body {
 }
 
 .street-sign {
-    border: 0.25em solid #ccc;
+    border: 0.25em solid transparent;
     background-color: $background;
+    background-clip: content-box;
     color: #ffffff;
     width: auto;
     padding-left: 0.25em;
