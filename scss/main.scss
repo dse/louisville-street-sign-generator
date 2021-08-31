@@ -15,8 +15,8 @@ $font-line-height: 0.62;
 $font-padding-top: 0.05;
 $border-width: 0.03125em;
 
-$background: #449944;
-$decal-background: darken($background, 8%);
+$background: #008844;
+$decal-background: rgba(black, 0.125);
 
 @mixin cap-height($cap-height, $height: null, $width: null) {
     $relative-cap-height: $cap-height / 4in;
@@ -51,7 +51,7 @@ body {
     font-kerning: normal;
 }
 
-.street-sign-extruded {
+.street-sign {
     display: inline-block;
     font-size: 8vw;
     box-sizing: content-box;
@@ -60,68 +60,81 @@ body {
     margin-top: 4rem;
     margin-bottom: 4rem;
     background-color: #ccc;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: block;
+        $top1: 100% / 6;
+        $top2: 100% / 6 - 3%;
+        $top3: 100% / 6 - 6%;
+        $bottom1: 100% - 100% / 6;
+        $bottom2: 100% - 100% / 6 + 3%;
+        $bottom3: 100% - 100% / 6 + 6%;
+        background-image: linear-gradient(
+            to bottom,
+            transparent #{$top3},
+            rgba(0, 0, 0, 50%) #{$top2},
+            transparent #{$top1},
+            transparent #{$bottom1},
+            white #{$bottom2},
+            transparent #{$bottom3}
+        );
+    }
 }
 
-.street-sign-extruded::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: block;
-    $top1: 100% / 6;
-    $top2: 100% / 6 - 3%;
-    $top3: 100% / 6 - 6%;
-    $bottom1: 100% - 100% / 6;
-    $bottom2: 100% - 100% / 6 + 3%;
-    $bottom3: 100% - 100% / 6 + 6%;
-    background-image: linear-gradient(
-        to bottom,
-        transparent #{$top3},
-        rgba(0, 0, 0, 50%) #{$top2},
-        transparent #{$top1},
-        transparent #{$bottom1},
-        white #{$bottom2},
-        transparent #{$bottom3}
-    );
+.street-sign__main-decal {
+    display: inline-block;
+    border: 0.25em solid transparent;
+    background-color: $background;
+    background-clip: padding-box;
+    color: #ffffff;
+    width: auto;
+    position: relative;
+    line-height: 0;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
 }
 
-.street-sign--layout {
-    display: grid;
+.street-sign__main-decal {
+    // display: inline-block;
+    // /* background-color: $background; */
+    // padding-left: 0.25em;
+    // padding-right: 0.25em;
+}
+
+.street-sign__layout {
+    display: inline-grid;
     grid-template-areas:
         'direction name designator'
         'direction name block-number';
     height: 1em;
     align-items: center;
-    align-content: space-evenly;
-    column-gap: 0.25em;
-}
-.street-sign--layout--direction {
-    grid-area: direction;
-}
-.street-sign--layout--name {
-    grid-area: name;
-}
-.street-sign--layout--designator {
-    grid-area: designator;
-}
-.street-sign--layout--block-number {
-    grid-area: block-number;
-}
-
-.street-sign {
-    border: 0.25em solid transparent;
-    background-color: $background;
-    background-clip: content-box;
-    color: #ffffff;
-    width: auto;
-    padding-left: 0.25em;
-    padding-right: 0.25em;
-    position: relative;
+    align-content: space-between;
+    > .street-sign__layout__direction {
+        grid-area: direction;
+    }
+    > .street-sign__layout__name {
+        grid-area: name;
+    }
+    > .street-sign__layout__designator {
+        grid-area: designator;
+        padding-top: 0.0625em;
+    }
+    > .street-sign__layout__block-number {
+        grid-area: block-number;
+        padding-bottom: 0.03125em;
+    }
+    > * {
+        padding-left: 0.125em;
+        padding-right: 0.125em;
+    }
 }
 
-.street-sign--direction-wrapper {
+.street-sign__direction-wrapper {
     display: block;
     height: 0.875em;
     width: 0.875em;
@@ -133,42 +146,47 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    > .street-sign__direction {
+        display: block;
+        font-family: 'FHWA Series C';
+        @include cap-height(1.4in);
+        color: $background;
+    }
 }
-
-.street-sign--direction {
-    display: block;
-    font-family: 'FHWA Series C';
-    @include cap-height(1.4in);
-    color: $background;
-}
-
-.street-sign--name {
+.street-sign__name {
     display: block;
     @include cap-height(3.5in);
+    .street-sign--smaller-text & {
+        @include cap-height(2.75in);
+    }
     font-family: 'FHWA Series B';
     position: relative;
     letter-spacing: -0.030em;
+    sup {
+        font-size: 50%;
+        letter-spacing: 0;
+        margin-left: 0.125em;
+        vertical-align: baseline;
+        position: relative;
+        top: -0.67em;
+    }
+    &:empty {
+        &::before {
+            content: '\a0';
+        }
+    }
 }
-
-.street-sign--name sup {
-    font-size: 50%;
-    letter-spacing: 0;
-    margin-left: 0.2em;
-    vertical-align: baseline;
-    position: relative;
-    top: -0.67em;
-}
-
-.street-sign--designator {
+.street-sign__designator {
     display: block;
     @include cap-height(0.875in);
     font-family: 'FHWA Series D';
+    &:empty {
+        &::before {
+            content: '\a0';
+        }
+    }
 }
-
-.street-sign--layout--block-number {
-}
-
-.street-sign--layout--block-number-decal {
+.street-sign__block-number-decal {
     display: flex;
     flex-direction: column;
     width: 1.77em;
@@ -189,10 +207,14 @@ body {
     padding-top: 3 * $border-width;
     padding-bottom: 3 * $border-width;
 }
-
-.street-sign--block-number {
+.street-sign__block-number {
     font-family: 'FHWA Series C';
-    @include cap-height(1.75in);
+    @include cap-height(1.625in);
+    &:empty {
+        &::before {
+            content: '\a0';
+        }
+    }
 }
 
 label {

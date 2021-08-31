@@ -46,9 +46,6 @@ Object.assign(StreetSignGenerator.prototype, {
         var name = this.inputs.name.value.trim().toUpperCase();
         var designator = this.inputs.designator.value.toUpperCase();
         var blockNumber = this.inputs.blockNumber.value;
-        if (!blockNumber) {
-            blockNumber = "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a000";
-        }
         if (!/\S/.test(designator)) {
             designator = "\u00a0";
         }
@@ -57,8 +54,8 @@ Object.assign(StreetSignGenerator.prototype, {
             name = 'Mc' + name.slice(2);
         }
         var matches;
-        if ((matches = /^(.*)(\d+)(ST|ND|RD|TH)$/.exec(name))) {
-            name = matches[1] + matches[2] + '<sup>' + matches[3] + '</sup>';
+        if ((matches = /^(.*)(\d+)(ST|ND|RD|TH)(?=$|\s)(.*)$/.exec(name))) {
+            name = matches[1] + matches[2] + '<sup>' + matches[3] + '</sup>' + matches[4];
         }
 
         this.outputs.direction.innerHTML = direction;
