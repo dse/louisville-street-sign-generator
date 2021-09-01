@@ -16,7 +16,7 @@
                 <div class="cell">
 
                     <h1 class="text-center">
-                        Street Sign Generator
+                        Street Sign Maker
                     </h1>
 
                     <p class="lead">
@@ -53,9 +53,9 @@
                             </span>
                         </div>
 
-                        <fieldset class="address-fields">
-                            <div class="address-fields__container">
-                                <label class="address-field address-field--street-direction">
+                        <div class="address-fields__container">
+                            <div class="address-field address-field--street-direction">
+                                <label>
                                     Dir'n:<br>
                                     <select data-street-direction-input name="street-direction">
                                         <option></option>
@@ -65,36 +65,59 @@
                                         <option>E</option>
                                     </select>
                                 </label>
-                                <label class="address-field address-field--street-name">
+                            </div>
+                            <div class="address-field address-field--street-name">
+                                <label>
                                     Street Name:<br>
                                     <input data-street-name-input type="text" name="street-name" value="MUHAMMAD ALI">
                                 </label>
-                                <label class="address-field address-field--street-designator">
+                                <label>
+                                    <input type="checkbox" name="street-small-text" data-street-small-text-checkbox value="1">
+                                    Small Text?
+                                </label>
+                            </div>
+                            <div class="address-field address-field--street-designator">
+                                <label>
                                     Suffix:<br>
                                     <input data-street-designator-input type="text" name="street-designator" value="BOULEVARD">
                                     <div class="help-text">
-                                        e.g., "COURT".<br>
-                                        Spell in full.
+                                        e.g., "COURT".  Do not abbreviate.
                                     </div>
                                 </label>
-                                <label class="address-field address-field--street-block-number">
+                            </div>
+                            <div class="address-field address-field--street-block-number">
+                                <label>
                                     Block &numero;<br>
                                     <input data-street-block-number-input type="number" name="street-block-number" value="100">
                                 </label>
                             </div>
-                        </fieldset>
+                        </div>
 
-                        <label>
-                            <input type="checkbox" name="street-small-text" data-street-small-text-checkbox value="1">
-                            Small Text?
-                        </label>
+                        <h2>
+                            Examples
+                        </h2>
+
+                        <button class="button primary" data-street-sign-example='{ "direction": "W", "name": "BROADWAY", "designator": "", "blockNumber": "4200", "smallText": false }'>
+                            Broadway
+                        </button>
+                        <button class="button primary" data-street-sign-example='{ "direction": "E", "name": "MUHAMMAD ALI", "designator": "BOULEVARD", "blockNumber": "900", "smallText": true }'>
+                            Muhammad Ali
+                        </button>
+                        <button class="button primary" data-street-sign-example='{ "direction": "", "name": "PENILE", "designator": "ROAD", "blockNumber": "1100", "smallText": false }'>
+                            Actual Street #1
+                        </button>
+                        <button class="button primary" data-street-sign-example='{ "direction": "", "name": "BILLY GOAT STRUT", "designator": "ALLEY", "blockNumber": "700", "smallText": true }'>
+                            Actual Street #2
+                        </button>
+                        <button class="button primary" data-street-sign-example='{ "direction": "", "name": "MYLANTA", "designator": "PLACE", "blockNumber": "3100", "smallText": false }'>
+                            Actual Street #3
+                        </button>
 
                     </form>
 
                 </div>
             </div>
         </div>
-
 
         <script>
             var ssg = new StreetSignGenerator('streetSignGenerator');
