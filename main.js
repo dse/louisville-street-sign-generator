@@ -46,6 +46,17 @@ function StreetSignGenerator(element) {
     this.inputs.blockNumber.addEventListener('keyup', this.updateFromForm.bind(this));
     this.inputs.blockNumber.addEventListener('change', this.updateFromForm.bind(this));
     this.inputs.smallText.addEventListener('change', this.updateFromForm.bind(this));
+    this.element.addEventListener('click', function (event) {
+        var thingy = event.target.closest('[data-street-sign-example]');
+        if (!thingy) { return; }
+        event.preventDefault();
+        var json = thingy.getAttribute('data-street-sign-example');
+        var o = JSON.parse(json);
+        this.data = o;
+        this.updateFormFromData();
+        this.updateFromForm();
+        this.saveData();
+    }.bind(this));
 }
 Object.assign(StreetSignGenerator.prototype, {
     updateFromForm: function () {
