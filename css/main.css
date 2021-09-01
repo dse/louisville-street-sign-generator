@@ -1166,10 +1166,20 @@ body { background-image: -webkit-gradient(linear, left top, left bottom, from(#5
 
 label { display: block; margin-top: 1rem; margin-bottom: 1rem; text-align: center; }
 
-.address-fields { display: -webkit-box; display: -ms-flexbox; display: flex; width: auto; margin-left: auto; margin-right: auto; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; gap: 0.25em; }
+.address-fields { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; }
 
-@media (min-width: 640px) { .address-fields { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; }
-  .address-fields input[name="street-direction"] { width: 2em; }
-  .address-fields input[name="street-name"] { width: 10em; }
-  .address-fields input[name="street-designator"] { width: 8em; }
-  .address-fields input[name="street-block-number"] { width: 5em; } }
+.address-fields > .address-fields__container { -webkit-box-flex: 0; -ms-flex: 0 0 auto; flex: 0 0 auto; min-height: 0px; min-width: 0px; width: calc(100% - 1.25rem); margin-left: 0.625rem; margin-right: 0.625rem; }
+
+@media print, screen and (min-width: 40em) { .address-fields > .address-fields__container { -webkit-box-flex: 0; -ms-flex: 0 0 auto; flex: 0 0 auto; width: calc(66.66667% - 1.875rem); margin-left: 0.9375rem; margin-right: 0.9375rem; margin-left: calc(16.66667% + 0.9375rem); } }
+
+@media print, screen and (min-width: 40em) { .address-fields > .address-fields__container { -webkit-box-flex: 0; -ms-flex: 0 0 auto; flex: 0 0 auto; width: calc(50% - 1.875rem); margin-left: 0.9375rem; margin-right: 0.9375rem; margin-left: calc(25% + 0.9375rem); } }
+
+.address-fields .address-fields__container { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; }
+
+.address-fields .address-fields__container > .address-field--street-direction { -webkit-box-flex: 0; -ms-flex: 0 0 auto; flex: 0 0 auto; width: calc(25% - 1.25rem); margin-left: 0.625rem; margin-right: 0.625rem; }
+
+.address-fields .address-fields__container > .address-field--street-name { -webkit-box-flex: 0; -ms-flex: 0 0 auto; flex: 0 0 auto; width: calc(75% - 1.25rem); margin-left: 0.625rem; margin-right: 0.625rem; }
+
+.address-fields .address-fields__container > .address-field--street-designator { -webkit-box-flex: 0; -ms-flex: 0 0 auto; flex: 0 0 auto; width: calc(66.66667% - 1.25rem); margin-left: 0.625rem; margin-right: 0.625rem; }
+
+.address-fields .address-fields__container > .address-field--street-block-number { -webkit-box-flex: 0; -ms-flex: 0 0 auto; flex: 0 0 auto; width: calc(33.33333% - 1.25rem); margin-left: 0.625rem; margin-right: 0.625rem; }

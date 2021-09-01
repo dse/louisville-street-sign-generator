@@ -222,18 +222,23 @@ label {
 }
 
 .address-fields {
-    display: flex;
-    width: auto;
-    margin-left: auto;
-    margin-right: auto;
-    flex-direction: column;
-    @media (min-width: 640px) {
-        flex-direction: row;
-        justify-content: center;
-        input[name="street-direction"] { width: 2em; }
-        input[name="street-name"] { width: 10em; }
-        input[name="street-designator"] { width: 8em; }
-        input[name="street-block-number"] { width: 5em; }
+    @include xy-grid;
+    > .address-fields__container {
+        @include xy-cell;
+        @include breakpoint('medium') {
+            @include xy-cell(2/3);
+            @include xy-cell-offset(1/6);
+        }
+        @include breakpoint('medium') {
+            @include xy-cell(1/2);
+            @include xy-cell-offset(1/4);
+        }
     }
-    gap: 0.25em;
+    .address-fields__container {
+        @include xy-grid;
+        > .address-field--street-direction    { @include xy-cell(1/4); }
+        > .address-field--street-name         { @include xy-cell(3/4); }
+        > .address-field--street-designator   { @include xy-cell(2/3); }
+        > .address-field--street-block-number { @include xy-cell(1/3); }
+    }
 }

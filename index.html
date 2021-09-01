@@ -54,33 +54,34 @@
                         </div>
 
                         <fieldset class="address-fields">
-
-                            <label>
-                                Dir'n:<br>
-                                <select data-street-direction-input name="street-direction">
-                                    <option></option>
-                                    <option>N</option>
-                                    <option>S</option>
-                                    <option>W</option>
-                                    <option>E</option>
-                                </select>
-                            </label>
-                            <label>
-                                Street Name:<br>
-                                <input data-street-name-input type="text" name="street-name" value="MUHAMMAD ALI">
-                            </label>
-                            <label>
-                                Suffix:<br>
-                                <input data-street-designator-input type="text" name="street-designator" value="BOULEVARD">
-                                <div class="help-text">
-                                    e.g., "COURT".<br>
-                                    Spell in full.
-                                </div>
-                            </label>
-                            <label>
-                                Block &numero;<br>
-                                <input data-street-block-number-input type="number" name="street-block-number" value="100">
-                            </label>
+                            <div class="address-fields__container">
+                                <label class="address-field address-field--street-direction">
+                                    Dir'n:<br>
+                                    <select data-street-direction-input name="street-direction">
+                                        <option></option>
+                                        <option>N</option>
+                                        <option>S</option>
+                                        <option>W</option>
+                                        <option>E</option>
+                                    </select>
+                                </label>
+                                <label class="address-field address-field--street-name">
+                                    Street Name:<br>
+                                    <input data-street-name-input type="text" name="street-name" value="MUHAMMAD ALI">
+                                </label>
+                                <label class="address-field address-field--street-designator">
+                                    Suffix:<br>
+                                    <input data-street-designator-input type="text" name="street-designator" value="BOULEVARD">
+                                    <div class="help-text">
+                                        e.g., "COURT".<br>
+                                        Spell in full.
+                                    </div>
+                                </label>
+                                <label class="address-field address-field--street-block-number">
+                                    Block &numero;<br>
+                                    <input data-street-block-number-input type="number" name="street-block-number" value="100">
+                                </label>
+                            </div>
                         </fieldset>
 
                         <label>
