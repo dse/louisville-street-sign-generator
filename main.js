@@ -78,12 +78,16 @@ Object.assign(StreetSignGenerator.prototype, {
             name = matches[1] + matches[2] + '<sup>' + matches[3] + '</sup>' + matches[4];
         }
 
+        var hasDirection = /\S/.test(direction);
+
         this.outputs.direction.innerHTML = direction;
-        this.element.querySelector('[data-street-direction]').style.display = /\S/.test(this.outputs.direction.innerHTML) ? '' : 'none';
+        this.element.querySelector('[data-street-direction]').style.display = hasDirection ? '' : 'none';
         this.outputs.name.innerHTML = name;
         this.outputs.designator.innerHTML = designator;
         this.outputs.blockNumber.innerHTML = blockNumber;
         this.elements.streetSign.classList[smallText ? 'add' : 'remove']('street-sign--small-text');
+        this.elements.streetSign.classList[hasDirection ? 'add' : 'remove']('street-sign--with-direction');
+        this.elements.streetSign.classList[hasDirection ? 'remove' : 'add']('street-sign--without-direction');
         this.saveData();
     },
     loadData: function () {

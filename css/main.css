@@ -1236,9 +1236,11 @@ body { background-image: -webkit-gradient(linear, left top, left bottom, from(#5
 
 .street-sign__extruded-plate::before { content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; display: block; background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10.66667%, transparent), color-stop(13.66667%, black), color-stop(16.66667%, transparent), color-stop(83.33333%, transparent), color-stop(86.33333%, white), color-stop(89.33333%, transparent)); background-image: linear-gradient(to bottom, transparent 10.66667%, black 13.66667%, transparent 16.66667%, transparent 83.33333%, white 86.33333%, transparent 89.33333%); }
 
-.street-sign__main-decal { display: inline-block; border: 0.25em solid transparent; background-color: #008844; background-clip: padding-box; color: #ffffff; width: auto; position: relative; line-height: 0; padding-left: 0.25em; padding-right: 0.25em; }
+.street-sign__main-decal { display: inline-block; border: 0.25em solid transparent; background-color: #008844; background-clip: padding-box; color: #ffffff; width: auto; position: relative; line-height: 0; padding-left: 0.125em; padding-right: 0.125em; }
 
-.street-sign__layout { display: inline-grid; grid-template-areas: 'direction name designator' 'direction name block-number'; height: 1em; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: justify; align-content: space-between; }
+.street-sign__layout { display: inline-grid; grid-template-areas: 'direction name designator' 'direction name block-number'; height: 1em; min-width: 5em; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: justify; align-content: space-between; }
+
+.street-sign--without-direction .street-sign__layout { min-width: 3.875em; }
 
 .street-sign__layout > .street-sign__layout__direction { grid-area: direction; }
 
@@ -1250,7 +1252,7 @@ body { background-image: -webkit-gradient(linear, left top, left bottom, from(#5
 
 .street-sign__layout > * { padding-left: 0.125em; padding-right: 0.125em; }
 
-.street-sign__direction-wrapper { display: block; height: 0.875em; width: 0.875em; text-align: center; background-image: url("../diamond.svg"); background-position: center; background-repeat: no-repeat; background-size: contain; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; }
+.street-sign__direction-wrapper { display: block; height: 0.875em; width: 0.875em; margin: 0 auto; text-align: center; background-image: url("../diamond.svg"); background-position: center; background-repeat: no-repeat; background-size: contain; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; }
 
 .street-sign__direction-wrapper > .street-sign__direction { display: block; font-family: 'FHWA Series C'; font-size: 52.23881%; line-height: 0.62; padding-top: 0.05em; color: #008844; }
 
@@ -1266,13 +1268,15 @@ body { background-image: -webkit-gradient(linear, left top, left bottom, from(#5
 
 .street-sign__designator:empty::before { content: '\a0'; }
 
-.street-sign__block-number-decal { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; width: 1.5em; position: relative; border-style: solid; border-color: transparent; border-width: 0.03125em 0.0625em; background-color: rgba(0, 0, 0, 0.125); -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; padding-top: 0.09375em; padding-bottom: 0.09375em; }
+.street-sign__block-number-decal { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; width: 1.5em; position: relative; border-style: solid; border-color: transparent; border-width: 0.03125em 0.0625em; background-color: rgba(0, 0, 0, 0.125); -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; padding-top: 0.09375em; padding-bottom: 0.09375em; margin: 0 auto; }
 
 .street-sign__block-number-decal::before { content: ''; display: block; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border: 0.03125em solid white; border-radius: 0.0625em; }
 
 .street-sign__block-number { font-family: 'FHWA Series C'; font-size: 60.63433%; line-height: 0.62; padding-top: 0.05em; }
 
 .street-sign__block-number:empty::before { content: '\a0'; }
+
+.street-sign__block-number-decal--blank { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; width: 1.5em; position: relative; background-color: white; color: #008844; height: 0.40625em; padding-top: 0.0625em; padding-bottom: 0.0625em; border-radius: 0.0625em; margin: 0 auto 0.03125em auto; }
 
 .address-fields__container { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; margin-right: -0.625rem; margin-left: -0.625rem; }
 

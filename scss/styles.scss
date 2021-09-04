@@ -14,9 +14,13 @@
 $font-line-height: 0.62;
 $font-padding-top: 0.05;
 $border-width: 0.03125em;
-
+$min-width: 5em;
 $background: #008844;
 $decal-background: rgba(black, 0.125);
+$font-size: 10vw;
+$horizontal-padding: 0.25em;
+
+$min-width--without-direction: $min-width - (3.5in / 4in * 1em) - $horizontal-padding;
 
 @mixin cap-height($cap-height, $height: null, $width: null) {
     $relative-cap-height: $cap-height / 4in;
@@ -49,9 +53,9 @@ body {
 .street-sign__extruded-plate {
     display: inline-block;
     margin: 0 auto;
-    font-size: 10vw;
+    font-size: $font-size;
     @include breakpoint(1200px) {
-        font-size: 120px;
+        font-size: $font-size / 100vw * 1200px;
     }
     box-sizing: content-box;
     position: relative;
@@ -95,15 +99,8 @@ body {
     width: auto;
     position: relative;
     line-height: 0;
-    padding-left: 0.25em;
-    padding-right: 0.25em;
-}
-
-.street-sign__main-decal {
-    // display: inline-block;
-    // /* background-color: $background; */
-    // padding-left: 0.25em;
-    // padding-right: 0.25em;
+    padding-left: $horizontal-padding / 2;
+    padding-right: $horizontal-padding / 2;
 }
 
 .street-sign__layout {
@@ -112,6 +109,10 @@ body {
         'direction name designator'
         'direction name block-number';
     height: 1em;
+    min-width: $min-width;
+    .street-sign--without-direction & {
+        min-width: $min-width--without-direction;
+    }
     align-items: center;
     align-content: space-between;
     > .street-sign__layout__direction {
@@ -138,6 +139,7 @@ body {
     display: block;
     height: 0.875em;
     width: 0.875em;
+    margin: 0 auto;
     text-align: center;
     background-image: url('../diamond.svg');
     background-position: center;
@@ -206,6 +208,7 @@ body {
     justify-content: center;
     padding-top: 3 * $border-width;
     padding-bottom: 3 * $border-width;
+    margin: 0 auto;
 }
 .street-sign__block-number {
     font-family: 'FHWA Series C';
@@ -215,6 +218,19 @@ body {
             content: '\a0';
         }
     }
+}
+.street-sign__block-number-decal--blank {
+    display: flex;
+    flex-direction: column;
+    width: 1.5em;
+    position: relative;
+    background-color: white;
+    color: $background;
+    height: 0.40625em;
+    padding-top: 2 * $border-width;
+    padding-bottom: 2 * $border-width;
+    border-radius: $border-width * 2;
+    margin: 0 auto 0.03125em auto;
 }
 
 @debug "$grid-margin-gutters: #{$grid-margin-gutters}";
