@@ -12,7 +12,7 @@
     <body>
 
         <div class="grid-container">
-            <div class="grid-x grid-margin-x">
+            <div class="grid-x grid-padding-x">
                 <div class="cell">
 
                     <h1 class="text-center">
@@ -28,32 +28,55 @@
 
                     <form id='streetSignGenerator'>
 
-                        <div class="street-sign" data-street-sign>
+                        <div class="street-sign street-sign--blank-size-24" data-street-sign>
                             <span class="street-sign__extruded-plate">
+
                                 <span class="street-sign__main-decal">
                                     <span class="street-sign__layout">
                                         <span data-street-direction class="street-sign__layout__direction">
                                             <span class="street-sign__direction-wrapper">
+                                                <svg viewBox="0 0 25.4 25.4" id="concave-diamond">
+                                                    <path id="concave-diamond-path" d="m 25.399999,12.729213 c -5.98884,1.983441 -10.687213,6.681828 -12.670656,12.670705 l -0.05851,7.5e-5 C 10.687388,19.411121 5.9890195,14.712736 1.685e-4,12.729293 L 5e-7,12.670783 C 5.9888505,10.687342 10.687222,5.988956 12.670665,8e-5 L 12.729175,0 c 1.983444,5.988876 6.681814,10.687262 12.670654,12.670703 z"/>
+                                                </svg>
                                                 <span data-street-direction-output class="street-sign__direction"></span>
                                             </span>
                                         </span>
-                                        <span class="street-sign__layout__name">
-                                            <span data-street-name-output class="street-sign__name">PENILE</span>
+                                        <span class="street-sign__layout__street-name">
+                                            <span data-street-name-output class="street-sign__street-name">PENILE</span>
                                         </span>
-                                        <span class="street-sign__layout__designator">
-                                            <span data-street-designator-output class="street-sign__designator">ROAD</span>
+                                        <span class="street-sign__layout__street-type">
+                                            <span data-street-designator-output class="street-sign__street-type">ROAD</span>
                                         </span>
                                         <span class="street-sign__layout__block-number">
-                                            <span class="street-sign__block-number-decal">
-                                                <span data-street-block-number-output class="street-sign__block-number">1100</span>
+                                            <span class="street-sign__block-number-wrapper">
+                                                <span class="street-sign__block-number-blank">
+                                                </span>
+                                                <span class="street-sign__block-number-decal">
+                                                    <span class="street-sign__block-number-border">
+                                                        <span data-street-block-number-output class="street-sign__block-number">1100</span>
+                                                    </span>
+                                                </span>
                                             </span>
                                         </span>
                                     </span>
                                 </span>
+
                             </span>
                         </div>
 
                         <div class="address-fields__container">
+                            <div class="address-field address-field--blank-size">
+                                <label>
+                                    Blank Size:<br>
+                                    <select data-blank-size name="blank-size">
+                                        <option value="18">18&Prime;</option>
+                                        <option value="24" selected>24&Prime;</option>
+                                        <option value="30">30&Prime;</option>
+                                        <option value="36">36&Prime;</option>
+                                        <option value="42">42&Prime;</option>
+                                    </select>
+                                </label>
+                            </div>
                             <div class="address-field address-field--street-direction">
                                 <label>
                                     Dir'n:<br>
@@ -97,19 +120,19 @@
                             Examples
                         </h2>
 
-                        <button class="button primary" data-street-sign-example='{ "direction": "W", "name": "BROADWAY", "designator": "", "blockNumber": "4200", "smallText": false }'>
+                        <button class="button primary" data-street-sign-example='{ "blankSize": 36, "direction": "W", "name": "BROADWAY", "designator": "", "blockNumber": "4200", "smallText": false }'>
                             Broadway
                         </button>
-                        <button class="button primary" data-street-sign-example='{ "direction": "E", "name": "MUHAMMAD ALI", "designator": "BOULEVARD", "blockNumber": "900", "smallText": true }'>
+                        <button class="button primary" data-street-sign-example='{ "blankSize": 36, "direction": "E", "name": "MUHAMMAD ALI", "designator": "BOULEVARD", "blockNumber": "900", "smallText": true }'>
                             Muhammad Ali
                         </button>
-                        <button class="button primary" data-street-sign-example='{ "direction": "", "name": "PENILE", "designator": "ROAD", "blockNumber": "1100", "smallText": false }'>
+                        <button class="button primary" data-street-sign-example='{ "blankSize": 24, "direction": "", "name": "PENILE", "designator": "ROAD", "blockNumber": "1100", "smallText": false }'>
                             Actual Street #1
                         </button>
-                        <button class="button primary" data-street-sign-example='{ "direction": "", "name": "BILLY GOAT STRUT", "designator": "ALLEY", "blockNumber": "700", "smallText": true }'>
+                        <button class="button primary" data-street-sign-example='{ "blankSize": 36, "direction": "", "name": "BILLY GOAT STRUT", "designator": "ALLEY", "blockNumber": "700", "smallText": true }'>
                             Actual Street #2
                         </button>
-                        <button class="button primary" data-street-sign-example='{ "direction": "", "name": "MYLANTA", "designator": "PLACE", "blockNumber": "3100", "smallText": false }'>
+                        <button class="button primary" data-street-sign-example='{ "blankSize": 30, "direction": "", "name": "MYLANTA", "designator": "PLACE", "blockNumber": "3100", "smallText": false }'>
                             Actual Street #3
                         </button>
 

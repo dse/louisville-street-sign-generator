@@ -3,6 +3,9 @@ REPOS_DIR = ~/git/dse.d/louisville-street-sign-generator
 REPOS_URL = git@github.com:dse/louisville-street-sign-generator.git
 SYMLINK = /www/webonastick.com/htdocs/streetsign
 
+default:
+	gulp sass
+
 publish:
 	ssh $(SSH_DEST) '\
 		if [ -d $(REPOS_DIR) ] ; then \

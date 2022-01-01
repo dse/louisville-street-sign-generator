@@ -1,0 +1,33 @@
+body {
+    background-image: linear-gradient(
+        to bottom,
+        #5588cc,
+        #88ccff
+    );
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.address-fields__container {
+    @include xy-grid;
+    > * { @include xy-cell($breakpoint: auto, $gutters: $grid-margin-gutters); }
+    @include xy-gutters($negative: true);
+    $output: (size gutters);
+
+    > .address-field--blank-size          { @include xy-cell(4 of 12, $breakpoint: auto, $output: $output); order: 1; }
+    > .address-field--street-direction    { @include xy-cell(4 of 12, $breakpoint: auto, $output: $output); order: 2; }
+    > .address-field--street-name         { @include xy-cell(6 of 12, $breakpoint: auto, $output: $output); order: 4; }
+    > .address-field--street-designator   { @include xy-cell(6 of 12, $breakpoint: auto, $output: $output); order: 5; }
+    > .address-field--street-block-number { @include xy-cell(4 of 12, $breakpoint: auto, $output: $output); order: 3; }
+
+    @include breakpoint(large) {
+        > .address-field--blank-size          { @include xy-cell(3 of 24, $breakpoint: auto, $output: $output); order: 1; }
+        > .address-field--street-direction    { @include xy-cell(3 of 24, $breakpoint: auto, $output: $output); order: 2; }
+        > .address-field--street-name         { @include xy-cell(7 of 24, $breakpoint: auto, $output: $output); order: 3; }
+        > .address-field--street-designator   { @include xy-cell(7 of 24, $breakpoint: auto, $output: $output); order: 4; }
+        > .address-field--street-block-number { @include xy-cell(4 of 24, $breakpoint: auto, $output: $output); order: 5; }
+    }
+
+}

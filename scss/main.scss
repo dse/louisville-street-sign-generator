@@ -1,10 +1,20 @@
+@import "./settings";
+
 @import "../node_modules/foundation-sites/scss/foundation";
 
 @include foundation-global-styles;
 @include foundation-forms;
 @include foundation-typography;
 
-@include foundation-xy-grid-classes;
+@include foundation-xy-grid-classes(
+    $margin-grid: false,
+    $padding-grid: true,
+    $vertical-grid: false,
+    $frame-grid: false,
+    $offset: false,
+    $collapse: false,
+    $block-grid: false,
+);
 // @include foundation-grid;
 // @include foundation-flex-grid;
 
@@ -53,4 +63,5 @@
 // @include foundation-visibility-classes;
 // @include foundation-prototype-classes;
 
+@import "page";
 @import "styles";
