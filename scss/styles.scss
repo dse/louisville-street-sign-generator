@@ -1,15 +1,36 @@
 @font-face {
-    font-family: 'FHWA Series B';
-    src: url('../fonts/Highway Gothic Condensed.ttf');
+    font-family: 'Series B';
+    src: url('../fonts/RG2014B.ttf');
 }
 @font-face {
-    font-family: 'FHWA Series C';
-    src: url('../fonts/Highway Gothic Narrow.ttf');
+    font-family: 'Series C';
+    src: url('../fonts/RG2014C.ttf');
 }
 @font-face {
-    font-family: 'FHWA Series D';
-    src: url('../fonts/Highway Gothic.ttf');
+    font-family: 'Series D';
+    src: url('../fonts/RG2014D.ttf');
 }
+// trial and error based on font
+$font-line-height: 3 / 7;
+$font-padding-top: 1 / 7;
+$sup-adjust: 4 / 7;
+
+// @font-face {
+//     font-family: 'Series B';
+//     src: url('../fonts/Highway Gothic Condensed.ttf');
+// }
+// @font-face {
+//     font-family: 'Series C';
+//     src: url('../fonts/Highway Gothic Narrow.ttf');
+// }
+// @font-face {
+//     font-family: 'Series D';
+//     src: url('../fonts/Highway Gothic.ttf');
+// }
+// // trial and error based on font
+// $font-line-height: 0.62;
+// $font-padding-top: 0.05;
+
 
 @function dimen($dimen) {
     @return $dimen * $sign-dimen;
@@ -27,10 +48,6 @@ $blank: #cccccc;
 $green: #008844;
 $block-number-decal: #008040;
 $off-white: #cceecc;
-
-// trial and error based on font
-$font-line-height: 0.62;
-$font-padding-top: 0.05;
 
 $sign-width:                       dimen(36);
 $sign-height:                      dimen(6.75);
@@ -174,7 +191,7 @@ $direction-height: dimen(1.5);
     position: relative;
     > .street-sign__direction {
         @include font-size($direction-height);
-        font-family: 'FHWA Series C';
+        font-family: 'Series C';
         color: $green;
         position: absolute;
         left: 0; width: 100%;
@@ -182,7 +199,7 @@ $direction-height: dimen(1.5);
     }
 }
 .street-sign__street-name {
-    font-family: 'FHWA Series B';
+    font-family: 'Series B';
     @include font-size($street-name-font-size);
     .street-sign--small-text & {
         @include font-size($street-name-small-font-size);
@@ -196,11 +213,11 @@ $direction-height: dimen(1.5);
         margin-left: 0.125em;
         vertical-align: baseline;
         position: relative;
-        top: -0.67em;
+        top: -$sup-adjust * 1em;
     }
 }
 .street-sign__street-type {
-    font-family: 'FHWA Series D';
+    font-family: 'Series D';
     @include font-size($street-type-font-size);
     color: $off-white;
     display: block;
@@ -231,7 +248,7 @@ $direction-height: dimen(1.5);
     left: 50%;
     transform: translate(-50%, -50%);
     display: block;
-    font-family: 'FHWA Series C';
+    font-family: 'Series C';
     @include font-size($block-number-font-size);
     color: $off-white;
 }
