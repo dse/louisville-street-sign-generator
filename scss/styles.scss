@@ -1,36 +1,8 @@
-@font-face {
-    font-family: 'Series B';
-    src: url('../fonts/RG2014B.ttf');
-}
-@font-face {
-    font-family: 'Series C';
-    src: url('../fonts/RG2014C.ttf');
-}
-@font-face {
-    font-family: 'Series D';
-    src: url('../fonts/RG2014D.ttf');
-}
-// trial and error based on font
-$font-line-height: 3 / 7;
-$font-padding-top: 1 / 7;
-$sup-adjust: 4 / 7;
+$font-line-height: 1 !default;
+$font-padding-top: 0 !default;
+$sup-adjust: 0 !default;
 
-// @font-face {
-//     font-family: 'Series B';
-//     src: url('../fonts/Highway Gothic Condensed.ttf');
-// }
-// @font-face {
-//     font-family: 'Series C';
-//     src: url('../fonts/Highway Gothic Narrow.ttf');
-// }
-// @font-face {
-//     font-family: 'Series D';
-//     src: url('../fonts/Highway Gothic.ttf');
-// }
-// // trial and error based on font
-// $font-line-height: 0.62;
-// $font-padding-top: 0.05;
-
+@import 'highway-var.scss';
 
 @function dimen($dimen) {
     @return $dimen * $sign-dimen;
@@ -191,7 +163,10 @@ $direction-height: dimen(1.5);
     position: relative;
     > .street-sign__direction {
         @include font-size($direction-height);
+
         font-family: 'Series C';
+        font-variation-settings: 'wdth' 150;
+
         color: $green;
         position: absolute;
         left: 0; width: 100%;
@@ -200,13 +175,15 @@ $direction-height: dimen(1.5);
 }
 .street-sign__street-name {
     font-family: 'Series B';
+    font-variation-settings: 'wdth' 100;
+
     @include font-size($street-name-font-size);
     .street-sign--small-text & {
         @include font-size($street-name-small-font-size);
     }
     color: $off-white;
     display: block;
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
     sup {
         font-size: 50%;
         letter-spacing: 0;
@@ -218,6 +195,8 @@ $direction-height: dimen(1.5);
 }
 .street-sign__street-type {
     font-family: 'Series D';
+    font-variation-settings: 'wdth' 200;
+
     @include font-size($street-type-font-size);
     color: $off-white;
     display: block;
@@ -248,7 +227,10 @@ $direction-height: dimen(1.5);
     left: 50%;
     transform: translate(-50%, -50%);
     display: block;
+
     font-family: 'Series C';
+    font-variation-settings: 'wdth' 150;
+
     @include font-size($block-number-font-size);
     color: $off-white;
 }

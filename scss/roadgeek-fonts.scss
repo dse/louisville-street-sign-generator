@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Series B';
+    src: url('../fonts/RG2014B.ttf');
+}
+@font-face {
+    font-family: 'Series C';
+    src: url('../fonts/RG2014C.ttf');
+}
+@font-face {
+    font-family: 'Series D';
+    src: url('../fonts/RG2014D.ttf');
+}
+// trial and error based on font
+$font-line-height: 3 / 7;
+$font-padding-top: 1 / 7;
+$sup-adjust: 4 / 7;
+// @font-face {
+//     font-family: 'Series B';
+//     src: url('../fonts/Highway Gothic Condensed.ttf');
+// }
+// @font-face {
+//     font-family: 'Series C';
+//     src: url('../fonts/Highway Gothic Narrow.ttf');
+// }
+// @font-face {
+//     font-family: 'Series D';
+//     src: url('../fonts/Highway Gothic.ttf');
+// }
+// // trial and error based on font
+// $font-line-height: 0.62;
+// $font-padding-top: 0.05;

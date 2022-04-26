@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Series B';
+    src: url('../fonts/highway-var/VARIABLE/OCHighwayVARVF.woff') format('woff-variations'),
+         url('../fonts/highway-var/VARIABLE/OCHighwayVARVF.ttf') format('truetype-variations');
+    font-variation-settings: 'wdth' 100;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Series C';
+    src: url('../fonts/highway-var/VARIABLE/OCHighwayVARVF.woff') format('woff-variations'),
+         url('../fonts/highway-var/VARIABLE/OCHighwayVARVF.ttf') format('truetype-variations');
+    font-variation-settings: 'wdth' 150;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Series D';
+    src: url('../fonts/highway-var/VARIABLE/OCHighwayVARVF.woff') format('woff-variations'),
+         url('../fonts/highway-var/VARIABLE/OCHighwayVARVF.ttf') format('truetype-variations');
+    font-variation-settings: 'wdth' 200;
+    font-weight: normal;
+    font-style: normal;
+}
+
+// trial and error based on font
+$font-line-height: 0.66;
+$font-padding-top: 0.02;
+$sup-adjust: 0.68;
