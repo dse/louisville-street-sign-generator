@@ -15,6 +15,8 @@ function StreetSignGenerator(element) {
     this.inputs.designator  = this.element.querySelector('[data-street-designator-input]');
     this.inputs.blockNumber = this.element.querySelector('[data-street-block-number-input]');
     this.inputs.smallText   = this.element.querySelector('[data-street-small-text-checkbox]');
+    this.inputs.seriesA     = this.element.querySelector('[data-street-series-a-checkbox]');
+    this.inputs.tracking    = this.element.querySelector('[data-street-name-tracking]');
 
     this.outputs = {};
     this.outputs.direction   = this.element.querySelector('[data-street-direction-output]');
@@ -48,6 +50,11 @@ function StreetSignGenerator(element) {
     this.inputs.blockNumber.addEventListener('keyup', this.updateFromForm.bind(this));
     this.inputs.blockNumber.addEventListener('change', this.updateFromForm.bind(this));
     this.inputs.smallText.addEventListener('change', this.updateFromForm.bind(this));
+    this.inputs.seriesA.addEventListener('change', this.updateFromForm.bind(this));
+
+    this.inputs.tracking.addEventListener('input', this.updateFromForm.bind(this));
+    this.inputs.tracking.addEventListener('change', this.updateFromForm.bind(this));
+
     this.element.addEventListener('click', function (event) {
         var thingy = event.target.closest('[data-street-sign-example]');
         if (!thingy) { return; }
@@ -68,6 +75,8 @@ Object.assign(StreetSignGenerator.prototype, {
         var designator  = this.inputs.designator.value.toUpperCase();
         var blockNumber = this.inputs.blockNumber.value;
         var smallText   = this.inputs.smallText.checked;
+        var seriesA     = this.inputs.seriesA.checked;
+        var tracking    = this.inputs.tracking.value;
 
         if (!/\S/.test(designator)) {
             designator = "\u00a0";
@@ -86,16 +95,30 @@ Object.assign(StreetSignGenerator.prototype, {
         this.outputs.direction.innerHTML = direction;
         this.element.querySelector('[data-street-direction]').style.display = hasDirection ? '' : 'none';
         this.outputs.name.innerHTML = name;
+        this.outputs.name.style.letterSpacing = (tracking * -0.05) + 'em';
         this.outputs.designator.innerHTML = designator;
         this.outputs.blockNumber.innerHTML = blockNumber;
         this.elements.streetSign.classList[smallText ? 'add' : 'remove']('street-sign--small-text');
+        this.elements.streetSign.classList[seriesA ? 'add' : 'remove']('street-sign--series-a');
         this.elements.streetSign.classList[hasDirection ? 'add' : 'remove']('street-sign--with-direction');
         this.elements.streetSign.classList[hasDirection ? 'remove' : 'add']('street-sign--without-direction');
-        this.elements.streetSign.classList[blankSize === 18 ? 'add' : 'remove']('street-sign--blank-size-18');
-        this.elements.streetSign.classList[blankSize === 24 ? 'add' : 'remove']('street-sign--blank-size-24');
-        this.elements.streetSign.classList[blankSize === 30 ? 'add' : 'remove']('street-sign--blank-size-30');
-        this.elements.streetSign.classList[blankSize === 36 ? 'add' : 'remove']('street-sign--blank-size-36');
-        this.elements.streetSign.classList[blankSize === 42 ? 'add' : 'remove']('street-sign--blank-size-42');
+        if (hasDirection) {
+            if (direction.length === 1) {
+                this.outputs.direction.classList.add('street-sign__direction--1-character');
+                this.outputs.direction.classList.remove('street-sign__direction--2-character');
+            } else if (direction.length === 2) {
+                this.outputs.direction.classList.remove('street-sign__direction--1-character');
+                this.outputs.direction.classList.add('street-sign__direction--2-character');
+            }
+        } else {
+            this.outputs.direction.classList.remove('street-sign__direction--1-character');
+            this.outputs.direction.classList.remove('street-sign__direction--2-character');
+        }
+        [18, 21, 24, 27, 30, 33, 36, 39, 42].forEach(function (blankSizeOption) {
+            this.elements.streetSign.classList[blankSize === blankSizeOption ? 'add' : 'remove'](
+                'street-sign--blank-size-' + blankSizeOption
+            );
+        }.bind(this));
         this.saveData();
     },
     loadData: function () {
@@ -109,6 +132,7 @@ Object.assign(StreetSignGenerator.prototype, {
         this.inputs.designator.value = this.data.designator;
         this.inputs.blockNumber.value = this.data.blockNumber;
         this.inputs.smallText.checked = !!this.data.smallText;
+        this.inputs.seriesA.checked = !!this.data.seriesA;
     },
     saveData: function () {
         var blankSize = this.inputs.blankSize.options[this.inputs.blankSize.selectedIndex].value;
@@ -117,6 +141,7 @@ Object.assign(StreetSignGenerator.prototype, {
         var designator = this.inputs.designator.value;
         var blockNumber = this.inputs.blockNumber.value;
         var smallText = this.inputs.smallText.checked;
+        var seriesA = this.inputs.seriesA.checked;
         if (!this.data) {
             this.data = {};
         }
@@ -126,6 +151,7 @@ Object.assign(StreetSignGenerator.prototype, {
         this.data.designator = designator;
         this.data.blockNumber = blockNumber;
         this.data.smallText = smallText;
+        this.data.seriesA = seriesA;
         localStorage.setItem('streetSign', JSON.stringify(this.data));
     },
     setSelectValue: function (select, value) {

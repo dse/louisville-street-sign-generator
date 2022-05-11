@@ -3,6 +3,7 @@ $font-padding-top: 0 !default;
 $sup-adjust: 0 !default;
 
 @import 'highway-var.scss';
+@import 'series-a.scss';
 
 @function dimen($dimen) {
     @return $dimen * $sign-dimen;
@@ -46,6 +47,7 @@ $block-number-blank-border-radius: dimen(0.25);
 $main-decal-left-margin: dimen(0.75);
 $main-decal-right-margin: dimen(0.75);
 $direction-height: dimen(1.5);
+$direction-2-character-height: dimen(1.25);
 
 .street-sign {
     text-align: center;
@@ -54,20 +56,9 @@ $direction-height: dimen(1.5);
     display: inline-block;
     width: $sign-width;
     height: $sign-height;
-    .street-sign--blank-size-18 & {
-        width: dimen(18);
-    }
-    .street-sign--blank-size-24 & {
-        width: dimen(24);
-    }
-    .street-sign--blank-size-30 & {
-        width: dimen(30);
-    }
-    .street-sign--blank-size-36 & {
-        width: dimen(36);
-    }
-    .street-sign--blank-size-42 & {
-        width: dimen(42);
+    @for $i from 6 through 14 {
+        $j: $i * 3;
+        .street-sign--blank-size-#{$j} & { width: dimen($j); }
     }
     margin: 2rem auto;
     position: relative;
@@ -171,6 +162,10 @@ $direction-height: dimen(1.5);
         position: absolute;
         left: 0; width: 100%;
         top: 50%; transform: translateY(-50%);
+
+        &.street-sign__direction--2-character {
+            @include font-size($direction-2-character-height);
+        }
     }
 }
 .street-sign__street-name {
@@ -180,6 +175,9 @@ $direction-height: dimen(1.5);
     @include font-size($street-name-font-size);
     .street-sign--small-text & {
         @include font-size($street-name-small-font-size);
+    }
+    .street-sign--series-a & {
+        font-family: 'Series A';
     }
     color: $off-white;
     display: block;

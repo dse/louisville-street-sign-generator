@@ -10,6 +10,10 @@
     font-family: 'FHWA Series D';
     src: url('fonts/Highway Gothic.ttf');
 }
+@font-face {
+    font-family: 'Series A';
+    src: url('fonts/series-a.ttf');
+}
 
 html {
     margin: 0;
