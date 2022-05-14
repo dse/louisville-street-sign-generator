@@ -612,7 +612,7 @@ body { background-image: -webkit-gradient(linear, left top, left bottom, from(#5
 
 .street-sign { text-align: center; }
 
-.street-sign__extruded-plate { display: inline-block; width: 77.14286vw; height: 14.46429vw; margin: 2rem auto; position: relative; background-color: #cccccc; }
+.street-sign__extruded-plate { display: inline-block; width: 77.14286vw; height: 14.46429vw; margin: 2rem auto; position: relative; background-color: #bbbbbb; }
 
 .street-sign--blank-size-18 .street-sign__extruded-plate { width: 38.57143vw; }
 
