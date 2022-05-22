@@ -634,7 +634,7 @@ body { background-image: -webkit-gradient(linear, left top, left bottom, from(#5
 
 .street-sign__extruded-plate::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: block; background-image: -webkit-gradient(linear, left top, left bottom, color-stop(11.11111%, transparent), color-stop(12.11111%, rgba(0, 0, 0, 0.2)), color-stop(14.11111%, rgba(0, 0, 0, 0.2)), color-stop(15.11111%, transparent), color-stop(84.88889%, transparent), color-stop(85.88889%, rgba(255, 255, 255, 0.5)), color-stop(87.88889%, rgba(255, 255, 255, 0.5)), color-stop(88.88889%, transparent)); background-image: linear-gradient(to bottom, transparent 11.11111%, rgba(0, 0, 0, 0.2) 12.11111%, rgba(0, 0, 0, 0.2) 14.11111%, transparent 15.11111%, transparent 84.88889%, rgba(255, 255, 255, 0.5) 85.88889%, rgba(255, 255, 255, 0.5) 87.88889%, transparent 88.88889%); z-index: 1; pointer-events: none; }
 
-.street-sign__main-decal { position: absolute; left: 1.60714vw; right: 1.60714vw; height: 11.25vw; top: 1.60714vw; bottom: 1.60714vw; border: 0.80357vw solid #ddeedd; background-color: #008844; }
+.street-sign__main-decal { position: absolute; left: 1.60714vw; right: 1.60714vw; height: 11.25vw; top: 1.60714vw; bottom: 1.60714vw; border: 0.53571vw solid #ddeedd; background-color: #008844; }
 
 .street-sign__layout { position: absolute; left: 0; right: 0; height: 8.57143vw; top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); }
 
