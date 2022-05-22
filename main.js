@@ -98,6 +98,13 @@ Object.assign(StreetSignGenerator.prototype, {
         this.outputs.name.style.letterSpacing = (tracking * -0.05) + 'em';
         this.outputs.designator.innerHTML = designator;
         this.outputs.blockNumber.innerHTML = blockNumber;
+
+        if (/\S/.test(String(blockNumber))) {
+            this.elements.streetSign.classList.remove('street-sign--with-no-block-number');
+        } else {
+            this.elements.streetSign.classList.add('street-sign--with-no-block-number');
+        }
+
         this.elements.streetSign.classList[smallText ? 'add' : 'remove']('street-sign--small-text');
         this.elements.streetSign.classList[seriesA ? 'add' : 'remove']('street-sign--series-a');
         this.elements.streetSign.classList[hasDirection ? 'add' : 'remove']('street-sign--with-direction');

@@ -11,7 +11,7 @@ $sup-adjust: 0 !default;
 
 @mixin font-size($dimen) {
     font-size: $dimen / ($font-line-height + $font-padding-top);
-    line-height: $font-line-height * 1em;
+    line-height: $font-line-height;
     padding-top: $font-padding-top * 1em;
 }
 
@@ -20,7 +20,7 @@ $sign-dimen: 90vw / 42;
 $blank: #bbbbbb;
 $green: #008844;
 $block-number-decal: #008040;
-$off-white: #cceecc;
+$off-white: #ddeedd;
 
 $sign-width:                       dimen(36);
 $sign-height:                      dimen(6.75);
@@ -153,7 +153,12 @@ $direction-2-character-height: dimen(1.25);
         align-self: start;
         justify-self: center;
     }
-    .street-sign__layout__block-number {
+    .street-sign__layout__block-number-blank {
+        grid-area: block-number;
+        align-self: end;
+        justify-self: center;
+    }
+    .street-sign__layout__block-number-decal {
         grid-area: block-number;
         align-self: end;
         justify-self: center;
@@ -215,51 +220,57 @@ $direction-2-character-height: dimen(1.25);
     color: $off-white;
     display: block;
 }
-.street-sign__block-number-decal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: $block-number-decal;
-    width: $block-number-decal-width;
-    height: $block-number-decal-height;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 1px 1px rgba(black, 0.5);
-}
-.street-sign__block-number-border {
-    display: block;
-    width: $block-number-border-width;
-    height: $block-number-border-height;
-    border: #{$block-number-border-thickness} solid $off-white;
-    border-radius: #{$block-number-border-radius};
-}
-.street-sign__block-number {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: block;
 
-    font-family: 'Series C';
-    font-variation-settings: 'wdth' 150;
-
-    @include font-size($block-number-font-size);
-    color: $off-white;
-}
-.street-sign__block-number-wrapper {
-    display: block;
-    width: max($block-number-decal-width, $block-number-blank-width);
-}
 .street-sign__block-number-blank {
     display: block;
-    width: $block-number-blank-width;
+    min-width: $block-number-blank-width;
     height: $block-number-blank-height;
     background-color: $off-white;
     border-radius: $block-number-blank-border-radius;
     margin-left: auto;
     margin-right: auto;
+}
+
+.street-sign__block-number-decal {
+    background-color: $block-number-decal;
+    min-width: $block-number-decal-width;
+    height: $block-number-decal-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 1px 1px rgba(black, 0.5);
+    margin-top: 0.1em;
+    margin-bottom: -0.1em;
+
+    @at-root .street-sign--with-no-block-number & {
+        display: none;
+    }
+}
+
+.street-sign__block-number-border {
+    display: block;
+    min-width: $block-number-border-width;
+    height: $block-number-border-height;
+    border: #{$block-number-border-thickness} solid $off-white;
+    border-radius: #{$block-number-border-radius};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+}
+
+.street-sign__block-number {
+    display: block;
+    font-family: 'Series C';
+    font-variation-settings: 'wdth' 150;
+    @include font-size($block-number-font-size);
+    color: $off-white;
+}
+
+.street-sign__block-number-wrapper {
+    display: block;
+    min-width: max($block-number-decal-width, $block-number-blank-width);
 }
 
 #concave-diamond-path {

@@ -61,18 +61,17 @@
                                         <span class="street-sign__layout__street-type">
                                             <span data-street-designator-output class="street-sign__street-type">ROAD</span>
                                         </span>
-                                        <span class="street-sign__layout__block-number">
-                                            <span class="street-sign__block-number-wrapper">
-                                                <span class="street-sign__block-number-blank">
-                                                </span>
-                                                <span class="street-sign__block-number-decal">
-                                                    <span class="street-sign__block-number-border">
-                                                        <span data-street-block-number-output class="street-sign__block-number">1100</span>
-                                                    </span>
+                                        <span class="street-sign__layout__block-number-blank">
+                                            <span class="street-sign__block-number-blank">
+                                            </span>
+                                        </span>
+                                        <span class="street-sign__layout__block-number-decal">
+                                            <span class="street-sign__block-number-decal">
+                                                <span class="street-sign__block-number-border">
+                                                    <span data-street-block-number-output class="street-sign__block-number">1100</span>
                                                 </span>
                                             </span>
                                         </span>
-                                        <span></span>
                                     </span>
                                 </span>
 
@@ -182,6 +181,8 @@
                                            { "blankSize": "30", "direction": "", "name": "CHICOPEE", "designator": "AVENUE", "blockNumber": "400", "smallText": false }'>RIP</button>
                             <button class="button primary" data-street-sign-example='
                                            { "blankSize": "27", "direction": "", "name": "MOHAWK", "designator": "AVENUE", "blockNumber": "300", "smallText": false }'>RIP</button>
+                            <button class="button primary" data-street-sign-example='
+                                           { "blankSize": "21", "direction": "", "name": "PARK", "designator": "BOULEVARD", "blockNumber": "4400", "smallText": false }'>RIP</button>
                         </p>
 
                         <h3>
@@ -245,18 +246,28 @@
 
                         <p>
                             <button class="button primary" data-street-sign-example='
-                                           { "blankSize": "36", "direction": "", "name": "LONG BEACH", "designator": "AVENUE", "blockNumber": "2500", "smallText": false }
-                                           '>
-                                Everywhere
+                                           { "blankSize": "36", "direction": "", "name": "LONG BEACH", "designator": "AVENUE", "blockNumber": "2500", "smallText": false }'>
+                                More
+                            </button>
+                            <button class="button primary" data-street-sign-example='
+                                           { "blankSize": "24", "direction": "", "name": "ZZYZX", "designator": "ROAD", "blockNumber": "49400", "smallText": false }'>
+                                Actual
+                            </button>
+                            <button class="button primary" data-street-sign-example='
+                                           { "blankSize": "30", "direction": "", "name": "Overseas", "designator": "Highway", "blockNumber": "106500", "smallText": false }'>
+                                Examples
+                            </button>
+                            <button class="button primary" data-street-sign-example='
+                                           { "blankSize": "33", "direction": "", "name": "Oxford-Perth", "designator": "Road", "blockNumber": "986000", "smallText": true }'>
+                                Here
                             </button>
                         </p>
 
-
-                    </form>
-
+                    </div>
                 </div>
             </div>
-        </div>
+
+        </form>
 
         <script>
             var ssg = new StreetSignGenerator('streetSignGenerator');
