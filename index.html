@@ -23,7 +23,15 @@
                         Sometime around 1964 or 1965, Louisville and Jefferson
                         County streets had brand new retroreflective street name
                         signs with the most handsomest design ever.  Fight me on
-                        this matter, and you will lose.
+                        this matter, and you will fail.  Miserably.
+                    </p>
+
+                    <p class="lead">
+                        Some dimensions and other aspects do not
+                        reflect the imperfrections resulting from the
+                        signs built mostly by hand.  This work
+                        reflects what the dimensions would be had
+                        there been exact dimensions.
                     </p>
 
                     <p class="lead">
@@ -113,10 +121,12 @@
                                     <input type="checkbox" name="street-small-text" data-ss-small-text-checkbox value="1">
                                     Small Text?
                                 </label>
-                                <label>
-                                    <input type="checkbox" name="street-series-a" data-ss-series-a-checkbox value="1">
-                                    Series A?
-                                </label>
+                                <select name="street-name-font" data-ss-street-name-font-input>
+                                    <option value="series-a">Series A</option>
+                                    <option selected value="series-b">Series B</option>
+                                    <option value="series-c">Series C</option>
+                                    <option value="series-d">Series D</option>
+                                </select>
                                 <label>
                                     <input type="range" name="street-name-tracking" data-ss-name-tracking value="0" min="0" max="1" step="0.01">
                                     Tracking
