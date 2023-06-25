@@ -32,13 +32,16 @@ $street-name-small-font-size:      dimen(3);
 $street-type-font-size:            dimen(1);
 $block-number-font-size:           dimen(2);
 
-$block-number-decal-width:         dimen(8);
+$block-number-decal-width:         dimen(8.25);
 $block-number-decal-height:        dimen(3.125);
 
 $block-number-border-width:        dimen(7.5);
 $block-number-border-height:       dimen(2.75);
 $block-number-border-thickness:    dimen(0.125);
 $block-number-border-radius:       dimen(0.25);
+
+$block-number-decal-padding-v:   dimen(0.125);
+$block-number-decal-padding-h:   dimen(0.25);
 
 $block-number-blank-width:         dimen(7.5);
 $block-number-blank-height:        dimen(2.75);
@@ -235,12 +238,19 @@ $direction-2-character-height: dimen(1.25);
     background-color: $block-number-decal;
     min-width: $block-number-decal-width;
     height: $block-number-decal-height;
+
+    $margin-h: ($block-number-decal-width - $block-number-blank-width) / 2;
+    $margin-v: ($block-number-decal-height - $block-number-blank-height) / 2;
+
+    margin-left: #{$margin-h * -1};
+    margin-right: #{$margin-h * -1};
+    margin-top: #{$margin-v * -1};
+    margin-bottom: #{$margin-v * -1};
+
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0px 1px 1px rgba(black, 0.5);
-    margin-top: 0.1em;
-    margin-bottom: -0.1em;
 
     @at-root .ss--with-no-block-number & {
         display: none;
