@@ -2,7 +2,7 @@ function StreetSignGenerator(element) {
     this.element = element;
 
     this.inputs = {};
-    this.inputs.blankSize   = this.element.querySelector('[data-blank-size]');
+    this.inputs.blankSize   = this.element.querySelector('[data-ss-blank-size-input]');
     this.inputs.direction   = this.element.querySelector('[data-ss-direction-input]');
     this.inputs.name        = this.element.querySelector('[data-ss-name-input]');
     this.inputs.designator  = this.element.querySelector('[data-ss-designator-input]');
