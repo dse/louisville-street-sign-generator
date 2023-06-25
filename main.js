@@ -1,12 +1,5 @@
 function StreetSignGenerator(element) {
     this.element = element;
-    if (typeof element === 'string') {
-        this.element = document.getElementById(element);
-        if (!this.element) {
-            console.error('no such element:', element);
-            return;
-        }
-    }
 
     this.inputs = {};
     this.inputs.blankSize   = this.element.querySelector('[data-blank-size]');
