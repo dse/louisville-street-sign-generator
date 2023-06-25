@@ -1,15 +1,23 @@
-function StreetSignGenerator(element) {
-    this.element = element;
+function StreetSignGenerator(element, form) {
+    if (form == null) {
+        this.element = element;
+    } else {
+        this.element = element;
+        this.form = form;
+    }
+    if (this.form == null) {
+        this.form = this.element;
+    }
 
     this.inputs = {};
-    this.inputs.blankSize   = this.element.querySelector('[data-ss-blank-size-input]');
-    this.inputs.direction   = this.element.querySelector('[data-ss-direction-input]');
-    this.inputs.name        = this.element.querySelector('[data-ss-name-input]');
-    this.inputs.designator  = this.element.querySelector('[data-ss-designator-input]');
-    this.inputs.blockNumber = this.element.querySelector('[data-ss-block-number-input]');
-    this.inputs.smallText   = this.element.querySelector('[data-ss-small-text-checkbox]');
-    this.inputs.seriesA     = this.element.querySelector('[data-ss-series-a-checkbox]');
-    this.inputs.tracking    = this.element.querySelector('[data-ss-name-tracking]');
+    this.inputs.blankSize   = this.form.querySelector('[data-ss-blank-size-input]');
+    this.inputs.direction   = this.form.querySelector('[data-ss-direction-input]');
+    this.inputs.name        = this.form.querySelector('[data-ss-name-input]');
+    this.inputs.designator  = this.form.querySelector('[data-ss-designator-input]');
+    this.inputs.blockNumber = this.form.querySelector('[data-ss-block-number-input]');
+    this.inputs.smallText   = this.form.querySelector('[data-ss-small-text-checkbox]');
+    this.inputs.seriesA     = this.form.querySelector('[data-ss-series-a-checkbox]');
+    this.inputs.tracking    = this.form.querySelector('[data-ss-name-tracking]');
 
     this.outputs = {};
     this.outputs.direction   = this.element.querySelector('[data-ss-direction-output]');
@@ -18,7 +26,11 @@ function StreetSignGenerator(element) {
     this.outputs.blockNumber = this.element.querySelector('[data-ss-block-number-output]');
 
     this.elements = {};
-    this.elements.streetSign = this.element.querySelector('[data-ss]');
+    if (this.element.matches('[data-ss]')) {
+        this.elements.streetSign = this.element;
+    } else {
+        this.elements.streetSign = this.element.querySelector('[data-ss]');
+    }
 
     this.loadData();
     if (this.data) {
@@ -48,7 +60,7 @@ function StreetSignGenerator(element) {
     this.inputs.tracking.addEventListener('input', this.updateFromForm.bind(this));
     this.inputs.tracking.addEventListener('change', this.updateFromForm.bind(this));
 
-    this.element.addEventListener('click', function (event) {
+    this.form.addEventListener('click', function (event) {
         var thingy = event.target.closest('[data-ss-example]');
         if (!thingy) { return; }
         event.preventDefault();
