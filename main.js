@@ -3,22 +3,22 @@ function StreetSignGenerator(element) {
 
     this.inputs = {};
     this.inputs.blankSize   = this.element.querySelector('[data-blank-size]');
-    this.inputs.direction   = this.element.querySelector('[data-street-direction-input]');
-    this.inputs.name        = this.element.querySelector('[data-street-name-input]');
-    this.inputs.designator  = this.element.querySelector('[data-street-designator-input]');
-    this.inputs.blockNumber = this.element.querySelector('[data-street-block-number-input]');
-    this.inputs.smallText   = this.element.querySelector('[data-street-small-text-checkbox]');
-    this.inputs.seriesA     = this.element.querySelector('[data-street-series-a-checkbox]');
-    this.inputs.tracking    = this.element.querySelector('[data-street-name-tracking]');
+    this.inputs.direction   = this.element.querySelector('[data-ss-direction-input]');
+    this.inputs.name        = this.element.querySelector('[data-ss-name-input]');
+    this.inputs.designator  = this.element.querySelector('[data-ss-designator-input]');
+    this.inputs.blockNumber = this.element.querySelector('[data-ss-block-number-input]');
+    this.inputs.smallText   = this.element.querySelector('[data-ss-small-text-checkbox]');
+    this.inputs.seriesA     = this.element.querySelector('[data-ss-series-a-checkbox]');
+    this.inputs.tracking    = this.element.querySelector('[data-ss-name-tracking]');
 
     this.outputs = {};
-    this.outputs.direction   = this.element.querySelector('[data-street-direction-output]');
-    this.outputs.name        = this.element.querySelector('[data-street-name-output]');
-    this.outputs.designator  = this.element.querySelector('[data-street-designator-output]');
-    this.outputs.blockNumber = this.element.querySelector('[data-street-block-number-output]');
+    this.outputs.direction   = this.element.querySelector('[data-ss-direction-output]');
+    this.outputs.name        = this.element.querySelector('[data-ss-name-output]');
+    this.outputs.designator  = this.element.querySelector('[data-ss-designator-output]');
+    this.outputs.blockNumber = this.element.querySelector('[data-ss-block-number-output]');
 
     this.elements = {};
-    this.elements.streetSign = this.element.querySelector('[data-street-sign]');
+    this.elements.streetSign = this.element.querySelector('[data-ss]');
 
     this.loadData();
     if (this.data) {
@@ -49,10 +49,10 @@ function StreetSignGenerator(element) {
     this.inputs.tracking.addEventListener('change', this.updateFromForm.bind(this));
 
     this.element.addEventListener('click', function (event) {
-        var thingy = event.target.closest('[data-street-sign-example]');
+        var thingy = event.target.closest('[data-ss-example]');
         if (!thingy) { return; }
         event.preventDefault();
-        var json = thingy.getAttribute('data-street-sign-example');
+        var json = thingy.getAttribute('data-ss-example');
         var o = JSON.parse(json);
         this.data = o;
         this.updateFormFromData();
@@ -86,7 +86,7 @@ Object.assign(StreetSignGenerator.prototype, {
         var hasDirection = /\S/.test(direction);
 
         this.outputs.direction.innerHTML = direction;
-        this.element.querySelector('[data-street-direction]').style.display = hasDirection ? '' : 'none';
+        this.element.querySelector('[data-ss-direction]').style.display = hasDirection ? '' : 'none';
         this.outputs.name.innerHTML = name;
         this.outputs.name.style.letterSpacing = (tracking * -0.05) + 'em';
         this.outputs.designator.innerHTML = designator;

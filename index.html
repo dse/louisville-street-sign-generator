@@ -41,25 +41,25 @@
                 <div class="grid-x grid-padding-x">
                     <div class="cell">
 
-                        <div class="street-sign street-sign--blank-size-24" data-street-sign>
+                        <div class="street-sign street-sign--blank-size-24" data-ss>
                             <span class="street-sign__extruded-plate">
 
                                 <span class="street-sign__main-decal">
                                     <span class="street-sign__layout street-sign__layout--grid">
                                         <span></span>
-                                        <span data-street-direction class="street-sign__layout__direction">
+                                        <span data-ss-direction class="street-sign__layout__direction">
                                             <span class="street-sign__direction-wrapper">
                                                 <svg viewBox="0 0 25.4 25.4" id="concave-diamond">
                                                     <path id="concave-diamond-path" d="m 25.399999,12.729213 c -5.98884,1.983441 -10.687213,6.681828 -12.670656,12.670705 l -0.05851,7.5e-5 C 10.687388,19.411121 5.9890195,14.712736 1.685e-4,12.729293 L 5e-7,12.670783 C 5.9888505,10.687342 10.687222,5.988956 12.670665,8e-5 L 12.729175,0 c 1.983444,5.988876 6.681814,10.687262 12.670654,12.670703 z"/>
                                                 </svg>
-                                                <span data-street-direction-output class="street-sign__direction"></span>
+                                                <span data-ss-direction-output class="street-sign__direction"></span>
                                             </span>
                                         </span>
                                         <span class="street-sign__layout__street-name">
-                                            <span data-street-name-output class="street-sign__street-name">PENILE</span>
+                                            <span data-ss-name-output class="street-sign__street-name">PENILE</span>
                                         </span>
                                         <span class="street-sign__layout__street-type">
-                                            <span data-street-designator-output class="street-sign__street-type">ROAD</span>
+                                            <span data-ss-designator-output class="street-sign__street-type">ROAD</span>
                                         </span>
                                         <span class="street-sign__layout__block-number-blank">
                                             <span class="street-sign__block-number-blank">
@@ -68,7 +68,7 @@
                                         <span class="street-sign__layout__block-number-decal">
                                             <span class="street-sign__block-number-decal">
                                                 <span class="street-sign__block-number-border">
-                                                    <span data-street-block-number-output class="street-sign__block-number">1100</span>
+                                                    <span data-ss-block-number-output class="street-sign__block-number">1100</span>
                                                 </span>
                                             </span>
                                         </span>
@@ -106,7 +106,7 @@
                             <div class="address-field address-field--street-direction">
                                 <label>
                                     Dir'n:<br>
-                                    <select data-street-direction-input name="street-direction">
+                                    <select data-ss-direction-input name="street-direction">
                                         <option></option>
                                         <option>N</option>
                                         <option>S</option>
@@ -122,25 +122,25 @@
                             <div class="address-field address-field--street-name">
                                 <label>
                                     Street Name:<br>
-                                    <input data-street-name-input type="text" name="street-name" value="MUHAMMAD ALI">
+                                    <input data-ss-name-input type="text" name="street-name" value="MUHAMMAD ALI">
                                 </label>
                                 <label>
-                                    <input type="checkbox" name="street-small-text" data-street-small-text-checkbox value="1">
+                                    <input type="checkbox" name="street-small-text" data-ss-small-text-checkbox value="1">
                                     Small Text?
                                 </label>
                                 <label>
-                                    <input type="checkbox" name="street-series-a" data-street-series-a-checkbox value="1">
+                                    <input type="checkbox" name="street-series-a" data-ss-series-a-checkbox value="1">
                                     Series A?
                                 </label>
                                 <label>
-                                    <input type="range" name="street-name-tracking" data-street-name-tracking value="0" min="0" max="1" step="0.01">
+                                    <input type="range" name="street-name-tracking" data-ss-name-tracking value="0" min="0" max="1" step="0.01">
                                     Tracking
                                 </label>
                             </div>
                             <div class="address-field address-field--street-designator">
                                 <label>
                                     Suffix:<br>
-                                    <input data-street-designator-input type="text" name="street-designator" value="BOULEVARD">
+                                    <input data-ss-designator-input type="text" name="street-designator" value="BOULEVARD">
                                     <div class="help-text">
                                         e.g., "COURT".  Do not abbreviate.
                                     </div>
@@ -149,7 +149,7 @@
                             <div class="address-field address-field--street-block-number">
                                 <label>
                                     Block &numero;<br>
-                                    <input data-street-block-number-input type="number" name="street-block-number" value="100">
+                                    <input data-ss-block-number-input type="number" name="street-block-number" value="100">
                                 </label>
                             </div>
                         </div>
@@ -159,29 +159,29 @@
                         </h2>
 
                         <p>
-                            <button class="button primary" data-street-sign-example='{ "blankSize": "36", "direction": "W", "name": "BROADWAY", "designator": "", "blockNumber": "4200", "smallText": false }'>
+                            <button class="button primary" data-ss-example='{ "blankSize": "36", "direction": "W", "name": "BROADWAY", "designator": "", "blockNumber": "4200", "smallText": false }'>
                                 Broadway
                             </button>
-                            <button class="button primary" data-street-sign-example='{ "blankSize": "36", "direction": "E", "name": "MUHAMMAD ALI", "designator": "BOULEVARD", "blockNumber": "900", "smallText": true }'>
+                            <button class="button primary" data-ss-example='{ "blankSize": "36", "direction": "E", "name": "MUHAMMAD ALI", "designator": "BOULEVARD", "blockNumber": "900", "smallText": true }'>
                                 Muhammad Ali
                             </button>
-                            <button class="button primary" data-street-sign-example='{ "blankSize": "24", "direction": "", "name": "PENILE", "designator": "ROAD", "blockNumber": "1100", "smallText": false }'>
+                            <button class="button primary" data-ss-example='{ "blankSize": "24", "direction": "", "name": "PENILE", "designator": "ROAD", "blockNumber": "1100", "smallText": false }'>
                                 Actual Street
                             </button>
-                            <button class="button primary" data-street-sign-example='{ "blankSize": "36", "direction": "", "name": "BILLY GOAT STRUT", "designator": "ALLEY", "blockNumber": "700", "smallText": true }'>
+                            <button class="button primary" data-ss-example='{ "blankSize": "36", "direction": "", "name": "BILLY GOAT STRUT", "designator": "ALLEY", "blockNumber": "700", "smallText": true }'>
                                 Actual Street
                             </button>
-                            <button class="button primary" data-street-sign-example='{ "blankSize": "30", "direction": "", "name": "MYLANTA", "designator": "PLACE", "blockNumber": "3100", "smallText": false }'>
+                            <button class="button primary" data-ss-example='{ "blankSize": "30", "direction": "", "name": "MYLANTA", "designator": "PLACE", "blockNumber": "3100", "smallText": false }'>
                                 Actual Street
                             </button>
-                            <button class="button primary" data-street-sign-example='{ "blankSize": "36", "direction": "", "name": "BURGOO KING", "designator": "ROAD", "blockNumber": "9100", "smallText": false }'>
+                            <button class="button primary" data-ss-example='{ "blankSize": "36", "direction": "", "name": "BURGOO KING", "designator": "ROAD", "blockNumber": "9100", "smallText": false }'>
                                 Actual Street
                             </button>
-                            <button class="button primary" data-street-sign-example='
+                            <button class="button primary" data-ss-example='
                                            { "blankSize": "30", "direction": "", "name": "CHICOPEE", "designator": "AVENUE", "blockNumber": "400", "smallText": false }'>RIP</button>
-                            <button class="button primary" data-street-sign-example='
+                            <button class="button primary" data-ss-example='
                                            { "blankSize": "27", "direction": "", "name": "MOHAWK", "designator": "AVENUE", "blockNumber": "300", "smallText": false }'>RIP</button>
-                            <button class="button primary" data-street-sign-example='
+                            <button class="button primary" data-ss-example='
                                            { "blankSize": "21", "direction": "", "name": "PARK", "designator": "BOULEVARD", "blockNumber": "4400", "smallText": false }'>RIP</button>
                         </p>
 
@@ -190,50 +190,50 @@
                         </h3>
 
                         <p>
-                            <button class="button primary" data-street-sign-example='{ "blankSize": "36", "direction": "", "name": "CHARLESTOWN", "designator": "ROAD", "blockNumber": "2700", "smallText": false }'>
+                            <button class="button primary" data-ss-example='{ "blankSize": "36", "direction": "", "name": "CHARLESTOWN", "designator": "ROAD", "blockNumber": "2700", "smallText": false }'>
                                 New Albany
                             </button>
-                            <button class="button primary" data-street-sign-example='{ "blankSize": "33", "direction": "", "name": "GREENTREE", "designator": "BOULEVARD", "blockNumber": "1600", "smallText": false }'>
+                            <button class="button primary" data-ss-example='{ "blankSize": "33", "direction": "", "name": "GREENTREE", "designator": "BOULEVARD", "blockNumber": "1600", "smallText": false }'>
                                 Clarksville
                             </button>
-                            <button class="button primary" data-street-sign-example='{ "blankSize": "30", "direction": "E", "name": "COURT", "designator": "AVENUE", "blockNumber": "700", "smallText": false }'>
+                            <button class="button primary" data-ss-example='{ "blankSize": "30", "direction": "E", "name": "COURT", "designator": "AVENUE", "blockNumber": "700", "smallText": false }'>
                                 Jeffersonville
                             </button>
                         </p>
                         <p>
-                            <button class="button primary" data-street-sign-example='{ "blankSize": "36", "direction": "", "name": "TATES CREEK", "designator": "ROAD", "blockNumber": "3900", "smallText": false }'>
+                            <button class="button primary" data-ss-example='{ "blankSize": "36", "direction": "", "name": "TATES CREEK", "designator": "ROAD", "blockNumber": "3900", "smallText": false }'>
                                 Lexington
                             </button>
-                            <button class="button primary" data-street-sign-example='{ "blankSize": "36", "direction": "N", "name": "BROADWAY", "designator": "", "blockNumber": "1400", "smallText": false }'>
+                            <button class="button primary" data-ss-example='{ "blankSize": "36", "direction": "N", "name": "BROADWAY", "designator": "", "blockNumber": "1400", "smallText": false }'>
                                 Lexington
                             </button>
-                            <button class="button primary" data-street-sign-example='{ "blankSize": "33", "direction": "", "name": "MAN O WAR", "designator": "BOULEVARD", "blockNumber": "2499", "smallText": false }'>
+                            <button class="button primary" data-ss-example='{ "blankSize": "33", "direction": "", "name": "MAN O WAR", "designator": "BOULEVARD", "blockNumber": "2499", "smallText": false }'>
                                 Lexington
                             </button>
-                            <button class="button primary" data-street-sign-example='{ "blankSize": "39", "direction": "", "name": "NICHOLASVILLE", "designator": "ROAD", "blockNumber": "4500", "smallText": false }'>
+                            <button class="button primary" data-ss-example='{ "blankSize": "39", "direction": "", "name": "NICHOLASVILLE", "designator": "ROAD", "blockNumber": "4500", "smallText": false }'>
                                 Lexington
                             </button>
-                            <button class="button primary" data-street-sign-example='{ "blankSize": "36", "direction": "N", "name": "LIMESTONE", "designator": "", "blockNumber": "400", "smallText": false }'>
+                            <button class="button primary" data-ss-example='{ "blankSize": "36", "direction": "N", "name": "LIMESTONE", "designator": "", "blockNumber": "400", "smallText": false }'>
                                 Lexington
                             </button>
                         </p>
                         <p>
-                            <button class="button primary" data-street-sign-example='
+                            <button class="button primary" data-ss-example='
                                            { "blankSize": "42", "direction": "E", "name": "CRESCENTVILLE", "designator": "ROAD", "blockNumber": "2500", "smallText": false }
                                            '>
                                 Cincinnati
                             </button>
-                            <button class="button primary" data-street-sign-example='
+                            <button class="button primary" data-ss-example='
                                            { "blankSize": "30", "direction": "", "name": "READING", "designator": "ROAD", "blockNumber": "3600", "smallText": false }
                                            '>
                                 Cincinnati
                             </button>
-                            <button class="button primary" data-street-sign-example='
+                            <button class="button primary" data-ss-example='
                                            { "blankSize": "42", "direction": "", "name": "WESTWOOD NORTHERN", "designator": "BOULEVARD", "blockNumber": "2500", "smallText": true }
                                            '>
                                 Cincinnati
                             </button>
-                            <button class="button primary" data-street-sign-example='
+                            <button class="button primary" data-ss-example='
                                            { "blankSize": "30", "direction": "", "name": "BLUE ASH", "designator": "ROAD", "blockNumber": "9100", "smallText": false }
                                            '>
                                 Cincinnati
@@ -245,19 +245,19 @@
                         </h3>
 
                         <p>
-                            <button class="button primary" data-street-sign-example='
+                            <button class="button primary" data-ss-example='
                                            { "blankSize": "36", "direction": "", "name": "LONG BEACH", "designator": "AVENUE", "blockNumber": "2500", "smallText": false }'>
                                 More
                             </button>
-                            <button class="button primary" data-street-sign-example='
+                            <button class="button primary" data-ss-example='
                                            { "blankSize": "24", "direction": "", "name": "ZZYZX", "designator": "ROAD", "blockNumber": "49400", "smallText": false }'>
                                 Actual
                             </button>
-                            <button class="button primary" data-street-sign-example='
+                            <button class="button primary" data-ss-example='
                                            { "blankSize": "30", "direction": "", "name": "Overseas", "designator": "Highway", "blockNumber": "106500", "smallText": false }'>
                                 Examples
                             </button>
-                            <button class="button primary" data-street-sign-example='
+                            <button class="button primary" data-ss-example='
                                            { "blankSize": "33", "direction": "", "name": "Oxford-Perth", "designator": "Road", "blockNumber": "986000", "smallText": true }'>
                                 Here
                             </button>
