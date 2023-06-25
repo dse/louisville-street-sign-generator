@@ -93,30 +93,30 @@ Object.assign(StreetSignGenerator.prototype, {
         this.outputs.blockNumber.innerHTML = blockNumber;
 
         if (/\S/.test(String(blockNumber))) {
-            this.elements.streetSign.classList.remove('street-sign--with-no-block-number');
+            this.elements.streetSign.classList.remove('ss--with-no-block-number');
         } else {
-            this.elements.streetSign.classList.add('street-sign--with-no-block-number');
+            this.elements.streetSign.classList.add('ss--with-no-block-number');
         }
 
-        this.elements.streetSign.classList[smallText ? 'add' : 'remove']('street-sign--small-text');
-        this.elements.streetSign.classList[seriesA ? 'add' : 'remove']('street-sign--series-a');
-        this.elements.streetSign.classList[hasDirection ? 'add' : 'remove']('street-sign--with-direction');
-        this.elements.streetSign.classList[hasDirection ? 'remove' : 'add']('street-sign--without-direction');
+        this.elements.streetSign.classList[smallText ? 'add' : 'remove']('ss--small-text');
+        this.elements.streetSign.classList[seriesA ? 'add' : 'remove']('ss--series-a');
+        this.elements.streetSign.classList[hasDirection ? 'add' : 'remove']('ss--with-direction');
+        this.elements.streetSign.classList[hasDirection ? 'remove' : 'add']('ss--without-direction');
         if (hasDirection) {
             if (direction.length === 1) {
-                this.outputs.direction.classList.add('street-sign__direction--1-character');
-                this.outputs.direction.classList.remove('street-sign__direction--2-character');
+                this.outputs.direction.classList.add('ss__direction--1-character');
+                this.outputs.direction.classList.remove('ss__direction--2-character');
             } else if (direction.length === 2) {
-                this.outputs.direction.classList.remove('street-sign__direction--1-character');
-                this.outputs.direction.classList.add('street-sign__direction--2-character');
+                this.outputs.direction.classList.remove('ss__direction--1-character');
+                this.outputs.direction.classList.add('ss__direction--2-character');
             }
         } else {
-            this.outputs.direction.classList.remove('street-sign__direction--1-character');
-            this.outputs.direction.classList.remove('street-sign__direction--2-character');
+            this.outputs.direction.classList.remove('ss__direction--1-character');
+            this.outputs.direction.classList.remove('ss__direction--2-character');
         }
         [18, 21, 24, 27, 30, 33, 36, 39, 42].forEach(function (blankSizeOption) {
             this.elements.streetSign.classList[blankSize === blankSizeOption ? 'add' : 'remove'](
-                'street-sign--blank-size-' + blankSizeOption
+                'ss--blank-size-' + blankSizeOption
             );
         }.bind(this));
         this.saveData();
