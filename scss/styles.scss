@@ -20,7 +20,7 @@ $block-number-decal: #008f00;
 .ss__extruded-blank {
     display: inline-block;
     height: 1em;
-    width: auto;
+    width: calc(1em/6.75 * 30);
     @for $i from 6 through 14 {
         $inches: $i * 3;
         .ss--blank-size-#{$inches} & {
