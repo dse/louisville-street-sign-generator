@@ -5,67 +5,30 @@ $sup-adjust: 0 !default;
 @import 'highway-var.scss';
 @import 'series-a.scss';
 
-@function dimen($dimen) {
-    @return $dimen * $sign-dimen;
-}
+$A: 1.0 / ($font-line-height + $font-padding-top);
+$B: $font-line-height;
+$C: calc(1em * #{$font-padding-top});
 
-@mixin font-size($dimen) {
-    font-size: $dimen / ($font-line-height + $font-padding-top);
-    line-height: $font-line-height;
-    padding-top: $font-padding-top * 1em;
-}
-
-$sign-dimen: 90vw / 42;
-
-$blank: #bbbbbb;
+$blade: #bbbbbb;
 $green: #009900;
 $block-number-decal: #008f00;
-$off-white: #ffffff;
-
-$sign-width:                       dimen(36);
-$sign-height:                      dimen(6.75);
-$main-decal-height:                dimen(5.25);
-$border-width:                     dimen(0.25);
-
-$street-name-font-size:            dimen(4);
-$street-name-small-font-size:      dimen(3);
-$street-type-font-size:            dimen(1);
-$block-number-font-size:           dimen(2);
-
-$block-number-decal-width:         dimen(8.25);
-$block-number-decal-height:        dimen(3.125);
-
-$block-number-border-width:        dimen(7.5);
-$block-number-border-height:       dimen(2.75);
-$block-number-border-thickness:    dimen(0.125);
-$block-number-border-radius:       dimen(0.25);
-
-$block-number-decal-padding-v:   dimen(0.125);
-$block-number-decal-padding-h:   dimen(0.25);
-
-$block-number-blank-width:         dimen(7.5);
-$block-number-blank-height:        dimen(2.75);
-$block-number-blank-border-radius: dimen(0.25);
-
-$main-decal-left-margin: dimen(0.75);
-$main-decal-right-margin: dimen(0.75);
-$direction-height: dimen(1.5);
-$direction-2-character-height: dimen(1.25);
 
 .ss {
     text-align: center;
+    font-size: 8em;
 }
 .ss__extruded-blank {
     display: inline-block;
-    width: $sign-width;
-    height: $sign-height;
+    height: 1em;
+    width: auto;
     @for $i from 6 through 14 {
-        $j: $i * 3;
-        .ss--blank-size-#{$j} & { width: dimen($j); }
+        $inches: $i * 3;
+        .ss--blank-size-#{$inches} & {
+            width: calc(1em * #{$inches} / 6.75);
+        }
     }
-    margin: 2rem auto;
     position: relative;
-    background-color: $blank;
+    background-color: $blade;
     &::after {
         content: '';
         position: absolute;
@@ -74,32 +37,32 @@ $direction-2-character-height: dimen(1.25);
         right: 0;
         bottom: 0;
         display: block;
-        $top: 100% / 9;
-        $bottom: 100% * 8 / 9;
         background-image: linear-gradient(
             to bottom,
-            transparent       #{$top},
-            rgba(black, 0.2)  #{$top + 1%},
-            rgba(black, 0.2)  #{$top + 3%},
-            transparent       #{$top + 4%},
-
-            transparent       #{$bottom - 4%},
-            rgba(white, 0.5)  #{$bottom - 3%},
-            rgba(white, 0.5)  #{$bottom - 1%},
-            transparent       #{$bottom}
+            transparent       calc(100% / 9),
+            rgba(black, 0.2)  calc(100% / 9 + 1%),
+            rgba(black, 0.2)  calc(100% / 9 + 3%),
+            transparent       calc(100% / 9 + 4%),
+            transparent       calc(100% * 8/9 - 4%),
+            rgba(white, 0.5)  calc(100% * 8/9 - 3%),
+            rgba(white, 0.5)  calc(100% * 8/9 - 1%),
+            transparent       calc(100% * 8/9)
         );
         z-index: 1;
         pointer-events: none;
     }
 }
+
 .ss__main-decal {
+    font-size: calc(100% / 6.75 * 4);
+
     position: absolute;
-    left: $main-decal-left-margin;
-    right: $main-decal-right-margin;
-    height: $main-decal-height;
-    top: ($sign-height - $main-decal-height) / 2;
-    bottom: ($sign-height - $main-decal-height) / 2;
-    border: $border-width solid $off-white;
+    left:   calc(1em/4 * .75);
+    right:  calc(1em/4 * .75);
+    height: calc(1em/4 * 5.25);
+    top:    calc(1em/4 * .75);
+    bottom: calc(1em/4 * .75);
+    border: calc(1em/4 * .25) solid white;
     background-color: $green;
 }
 
@@ -107,7 +70,7 @@ $direction-2-character-height: dimen(1.25);
     position: absolute;
     left: 0;
     right: 0;
-    height: $street-name-font-size;
+    height: 1em;
     top: 50%;
     transform: translateY(-50%);
     .ss__layout__direction {
@@ -169,35 +132,41 @@ $direction-2-character-height: dimen(1.25);
 }
 
 .ss__direction-wrapper {
-    height: $street-name-font-size;
-    width: $street-name-font-size;
+    height: calc(1em/4 * 4);
+    width:  calc(1em/4 * 4);
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
     > .ss__direction {
-        @include font-size($direction-height);
+
+        font-size: calc(100% / 4 * 1.5 * #{$A});
+        &.ss__direction--2-character {
+            font-size: calc(100% / 4 * 1.25 * #{$A});
+        }
+        line-height: $B;
+        padding-top: $C;
+
         font-family: 'Series C';
         font-variation-settings: 'wdth' 150;
         color: $green;
         position: absolute;
         left: 0; width: 100%;
         top: 50%; transform: translateY(-50%);
-
-        &.ss__direction--2-character {
-            @include font-size($direction-2-character-height);
-        }
     }
 }
 .ss__street-name {
     font-family: 'Series B';
     font-variation-settings: 'wdth' 100;
 
-    @include font-size($street-name-font-size);
+    font-size: calc(100% * #{$A});
     .ss--small-text & {
-        @include font-size($street-name-small-font-size);
+        font-size: calc(100% * 3/4 * #{$A});
     }
+    line-height: $B;
+    padding-top: $C;
+
     .ss--series-a & {
         font-family: 'Series A';
     }
@@ -207,9 +176,9 @@ $direction-2-character-height: dimen(1.25);
     }
     .ss--series-d & {
         font-family: 'Series D';
-        font-variation-settings: 'wdth' 150;
+        font-variation-settings: 'wdth' 200;
     }
-    color: $off-white;
+    color: white;
     display: block;
     letter-spacing: 0;
     sup {
@@ -221,43 +190,41 @@ $direction-2-character-height: dimen(1.25);
         top: -$sup-adjust * 1em;
     }
 }
+
 .ss__street-type {
     font-family: 'Series D';
     font-variation-settings: 'wdth' 200;
 
-    @include font-size($street-type-font-size);
-    color: $off-white;
+    font-size: calc(100% / 4 * #{$A});
+    line-height: $B;
+    padding-top: $C;
+
+    color: white;
     display: block;
 }
 
 .ss__block-number-blank {
     display: block;
-    min-width: $block-number-blank-width;
-    height: $block-number-blank-height;
-    background-color: $off-white;
-    border-radius: $block-number-blank-border-radius;
-    margin-left: auto;
-    margin-right: auto;
+    min-width: calc(1em / 4 * 7.5);
+    height: calc(1em / 4 * 2.75);
+    background-color: white;
+    border-radius: calc(1em / 4 * 0.25);
+    margin-left: calc(1em / 4 * #{(8.25 - 7.5) / 2});
+    margin-right: calc(1em / 4 * #{(8.25 - 7.5) / 2});
 }
 
 .ss__block-number-decal {
+    min-width: calc(1em / 4 * 8.25);
+    padding-left: calc(1em / 4 * #{(8.25 - 7.5) / 2});
+    padding-right: calc(1em / 4 * #{(8.25 - 7.5) / 2});
     background-color: $block-number-decal;
-    min-width: $block-number-decal-width;
-    height: $block-number-decal-height;
-
-    $margin-h: ($block-number-decal-width - $block-number-blank-width) / 2;
-    $margin-v: ($block-number-decal-height - $block-number-blank-height) / 2;
-
-    margin-left: #{$margin-h * -1};
-    margin-right: #{$margin-h * -1};
-    margin-top: #{$margin-v * -1};
-    margin-bottom: #{$margin-v * -1};
-
+    height: calc(1em / 4 * 3);
+    margin-top: calc(-1em / 4 * 0.125);
+    margin-bottom: calc(-1em / 4 * 0.125);
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0px 1px 1px rgba(black, 0.5);
-
     @at-root .ss--with-no-block-number & {
         display: none;
     }
@@ -265,10 +232,10 @@ $direction-2-character-height: dimen(1.25);
 
 .ss__block-number-border {
     display: block;
-    min-width: $block-number-border-width;
-    height: $block-number-border-height;
-    border: #{$block-number-border-thickness} solid $off-white;
-    border-radius: #{$block-number-border-radius};
+    min-width: calc(1em / 4 * 7.5);
+    height: calc(1em / 4 * 2.75);
+    border: calc(1em / 4 * 0.125) solid white;
+    border-radius: calc(1em / 4 * 0.25);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -278,17 +245,21 @@ $direction-2-character-height: dimen(1.25);
     display: block;
     font-family: 'Series C';
     font-variation-settings: 'wdth' 150;
-    @include font-size($block-number-font-size);
-    color: $off-white;
+
+    font-size: calc(1em / 4 * 2 * #{$A});
+    line-height: $B;
+    padding-top: $C;
+
+    color: white;
 }
 
 .ss__block-number-wrapper {
     display: block;
-    min-width: max($block-number-decal-width, $block-number-blank-width);
+    min-width: calc(1em / 4 * 8.25);
 }
 
 #concave-diamond-path {
-    width: $street-name-font-size;
-    height: $street-name-font-size;
-    fill: $off-white;
+    width: 1em;
+    height: 1em;
+    fill: white;
 }
