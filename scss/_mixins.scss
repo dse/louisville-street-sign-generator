@@ -1,9 +1,0 @@
-@function dimen($dimen) {
-    @return $dimen * $sign-dimen;
-}
-
-@mixin font-size($dimen) {
-    font-size: $dimen / ($font-line-height + $font-padding-top);
-    line-height: $font-line-height;
-    padding-top: $font-padding-top * 1em;
-}
