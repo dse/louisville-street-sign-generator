@@ -16,9 +16,7 @@ function sassMinified() {
         .pipe(gulpPostcss([
             autoprefixer({ overrideBrowserslist: ['last 2 versions', 'ie >= 9'] })
         ]))
-        .pipe(gulpRename({
-            suffix: '.min'
-        }))
+        .pipe(gulpRename({ suffix: '.min' }))
         .pipe(gulp.dest('css'));
 }
 
