@@ -306,6 +306,8 @@ $white: white;
     @include series-c();
     @include font-size(1em * 2/4); // 2in
     color: var(--white);
+    padding-left: 0.125em;
+    padding-right: 0.125em;
 }
 
 .ss__block-number-wrapper {

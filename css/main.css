@@ -2448,6 +2448,8 @@ body {
   line-height: var(--line-height);
   padding-top: calc(1em * var(--padding-top));
   color: var(--white);
+  padding-left: 0.125em;
+  padding-right: 0.125em;
 }
 
 .ss__block-number-wrapper {

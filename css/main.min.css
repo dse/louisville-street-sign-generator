@@ -58,4 +58,4 @@
         (var(--cap-height) - var(--ascent) + var(--descent)) / (var(--ascent) + var(--descent))
     );--sup-adjust: calc(
         var(--cap-height) / (var(--ascent) + var(--descent))
-    );font-size:calc(.5em / (var(--line-height) + var(--padding-top)));line-height:var(--line-height);padding-top:calc(1em * var(--padding-top));color:var(--white)}.ss__block-number-wrapper{display:block;min-width:calc(1em / 4 * 8)}#concave-diamond-path{width:1em;height:1em;fill:var(--white)}
+    );font-size:calc(.5em / (var(--line-height) + var(--padding-top)));line-height:var(--line-height);padding-top:calc(1em * var(--padding-top));color:var(--white);padding-left:0.125em;padding-right:0.125em}.ss__block-number-wrapper{display:block;min-width:calc(1em / 4 * 8)}#concave-diamond-path{width:1em;height:1em;fill:var(--white)}
