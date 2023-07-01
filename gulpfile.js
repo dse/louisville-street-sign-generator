@@ -24,7 +24,7 @@ function sassUnminified() {
     return gulp.src('scss/main.scss')
         .pipe(gulpSass({
             includePaths: sassPaths,
-            outputStyle: 'compact' // if css compressed **file size**
+            outputStyle: 'expanded' // if css compressed **file size**
         }).on('error', gulpSass.logError))
         .pipe(gulpPostcss([
             autoprefixer({ overrideBrowserslist: ['last 2 versions', 'ie >= 9'] })
