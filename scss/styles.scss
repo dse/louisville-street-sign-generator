@@ -256,9 +256,7 @@ $white: white;
 }
 
 .ss__street-type {
-    font-family: 'Series D';
-    font-variation-settings: 'wdth' 200;
-
+    @include series-d();
     @include font-size(100% / 4); // 1in
 
     color: var(--white);

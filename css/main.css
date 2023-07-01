@@ -2356,6 +2356,9 @@ body {
 .ss__street-type {
   font-family: 'Series D';
   font-variation-settings: 'wdth' 200;
+  --ascent: 822;
+  --descent: 178;
+  --cap-height: 670;
   --line-height: calc(
         (var(--ascent) - var(--descent)) / (var(--ascent) + var(--descent))
     );
